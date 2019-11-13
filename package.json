@@ -1,0 +1,25 @@
+{
+  "name": "research_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "client": "cd client && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.4",
+    "mongoose": "^5.7.10",
+    "yarn": "^1.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "concurrently": "^4.0.1"
+  }
+}
