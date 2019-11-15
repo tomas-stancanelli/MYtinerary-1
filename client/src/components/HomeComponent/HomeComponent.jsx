@@ -1,6 +1,6 @@
 import React from "react";
 import "./HomeComponentStyle.css";
-import arrow from "./HomeComponentImages/circled-right-2.png";
+// import arrow from "./HomeComponentImages/circled-right-2.jpg";
 import barcelona from "./HomeComponentImages/barcelona.jpg";
 import newYork from "./HomeComponentImages/newYork.jpg";
 import amsterdam from "./HomeComponentImages/amsterdam.jpg";
@@ -13,115 +13,121 @@ import rio from "./HomeComponentImages/rio.jpg";
 import roma from "./HomeComponentImages/roma.jpg";
 import tokyo from "./HomeComponentImages/tokyo.jpg";
 import athens from "./HomeComponentImages/athens.jpg";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const HomeComponent = ({cities}) => {
+const HomeComponent = () => {
   return (
     <div className={"Apps"}>
-      {console.log(cities.cities[0].id)}
-      <h2 className={"myFont"}>
-        Find your perfect trip, designed by insiders who know and love their
+      <h2 className={"myFont marg"}>
+        Find your perfect trip,<br/>
+        designed by insiders who know and love their
         cities.
       </h2>
-      <img className={"arrow"} src={arrow} alt="" />
+      <h3 className={"myFont myFont2"}>View all cities here!</h3>
+      <Link to="/search">
+        <div className={"two"}>
+
+        <div className={"arrow marg"}></div>
+        </div>
+      </Link>
+
       <h2 className={"myFont lefty"}>Popular MYtinerarys</h2>
       <div className={"flexImg"}>
         <div
           id="carouselExampleControls"
-          className="carousel slide"
+          className="carousel slide one"
           data-ride="carousel"
         >
           <div className="carousel-inner">
-            <div className="carousel-item active">
-              <Link to={`/city/${cities.cities[0].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={paris}
-                alt="First slide"
+            <div className="carousel-item active one">
+              <Link to="/cities/paris">
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={paris}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[1].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={amsterdam}
-                alt="Second slide"
+              </Link>
+              <Link to={`/cities/amsterdam`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={amsterdam}
+                  alt="Second slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[2].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={newYork}
-                alt="Third slide"
+              </Link>
+              <Link to={`/cities/new_york`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={newYork}
+                  alt="Third slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[3].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={barcelona}
-                alt="Third slide"
+              </Link>
+              <Link to={`/cities/barcelona`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={barcelona}
+                  alt="Third slide"
                 />
-                </Link>
-                
+              </Link>
             </div>
-            <div className="carousel-item">
-            <Link to={`/city/${cities.cities[4].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={prague}
-                alt="First slide"
+            <div className="carousel-item one">
+              <Link to={`/cities/prague`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={prague}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[5].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={london}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/london`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={london}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[6].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={mexico}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/mexico`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={mexico}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[7].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={montevideo}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/montevideo`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={montevideo}
+                  alt="First slide"
                 />
-                </Link>
+              </Link>
             </div>
-            <div className="carousel-item">
-            <Link to={`/city/${cities.cities[8].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={athens}
-                alt="First slide"
+            <div className="carousel-item one">
+              <Link to={`/cities/athens`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={athens}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[9].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={tokyo}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/tokyo`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={tokyo}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[10].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={roma}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/rome`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={roma}
+                  alt="First slide"
                 />
-                </Link>
-                <Link to={`/city/${cities.cities[11].id}`}>
-              <img
-                className="col-lg-6 col-md-6 col-sm-6 images"
-                src={rio}
-                alt="First slide"
+              </Link>
+              <Link to={`/cities/rio_de_janeiro`}>
+                <img
+                  className="col-lg-6 col-md-6 col-sm-6 images"
+                  src={rio}
+                  alt="First slide"
                 />
-                </Link>
+              </Link>
             </div>
           </div>
           <a
@@ -149,11 +155,6 @@ const HomeComponent = ({cities}) => {
             <span className="sr-only">Next</span>
           </a>
         </div>
-
-        {/* <img className={"images"} src={barcelona} alt=""/>
-            <img className={"images"} src={newYork} alt=""/>
-            <img className={"images"} src={amsterdam} alt=""/>
-            <img className={"images"} src={paris} alt=""/> */}
       </div>
     </div>
   );

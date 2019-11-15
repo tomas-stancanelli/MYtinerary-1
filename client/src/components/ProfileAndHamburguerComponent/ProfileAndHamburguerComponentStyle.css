@@ -41,5 +41,9 @@
 
 .modal2 {
   display: inline;
-  position: fixed;
+  position: absolute;
+}
+
+.create_login {
+  color:white;
 }

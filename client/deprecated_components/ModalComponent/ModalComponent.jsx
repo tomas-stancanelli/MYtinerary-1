@@ -1,12 +1,11 @@
 
 import React from 'react';
 import {Link} from 'react-router-dom'
+import './ModalComponentStyle.css'
 
 const ModalComponent = ({changeShow}) => {
     return (
-        <div>
-            
-            
+        <div>            
             <div className={"flexStart"}>
               <div
                 className="modal left fade col-lg-3 col-md-3"
@@ -23,7 +22,7 @@ const ModalComponent = ({changeShow}) => {
                   <div className="modal-content">
                     <div className="modal-header">
                       <h5 className="modal-title" id="exampleModalLabel">
-                        Mi Perfil
+                        Mi Perf
                       </h5>
                       <button
                         type="button"
@@ -46,7 +45,7 @@ const ModalComponent = ({changeShow}) => {
 
                       <Link
                         to="/login"
-                        className="btn btn-md btn-default"
+                        className="btn btn-md btn-primary"
                         aria-label="Close"
                         data-dismiss="modal"
                         onClick={changeShow}>

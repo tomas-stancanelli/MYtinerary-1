@@ -1,21 +1,25 @@
-import React from 'react';
-import './CityComponentStyle.css'
+import React from "react";
+import "./CityComponentStyle.css";
+import gif from "../../assets/loading.gif";
 
-const CityComponent = (props) => {
-    return (
+const CityComponent = ({ singleCity }) => {
+  return (
+    <div>
+      <h1 className={"myFont6"}>Welcome to the city of</h1>
+      {singleCity ? (
         <div>
-            <h1>Welcome to City</h1>
-            {props &&
-            <div>
-
-            <h1>
-                {props.cities.cities[props.city.id].name}
-            </h1>
-                <img className={"img"} src={props.cities.cities[props.city.id].img[props.cities.cities[props.city.id].title]} alt=""/>
-            </div> 
-            }
+          <h1 className={"myFont6"}>{singleCity.name}</h1>
+          <img className={"img"} src={singleCity.image} alt="" />
         </div>
-    );
+      ):
+      (
+        <div className="flexCont">
+          <img className="loading" src={gif} alt="" />
+        </div>
+      )
+      }
+    </div>
+  );
 };
 
 export default CityComponent;

@@ -1,0 +1,40 @@
+.loading {
+    height: 30%;
+    width: 30%;
+}
+
+.flexCont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input {
+    width: 300px;
+    margin-bottom: 3%;
+}
+
+.marg { 
+    margin-bottom: 3%;
+    margin-top: 1%;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+   }
+   a:hover, a:active {
+    color: #D82F00;
+   }
+
+.noLink {
+    font-size: 4vw;
+}
+
+
+.noLink5 {
+    font-size: 2vw;
+}
+.noLink3 {
+    font-size: 5vw;
+}

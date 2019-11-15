@@ -13,7 +13,6 @@ class ProfileAndHamburguerContainer extends Component {
     };
 
     changeShow(){
-        console.log("SSISISISI")
         this.state.show ? this.setState({show: false}) : this.setState({show: true})
     }
 
