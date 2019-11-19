@@ -14,22 +14,27 @@ const SearchCitiesComponent = ({ onChange, data }) => {
         onChange={onChange}
         placeholder="Type a city here..."
       />
+
+<div className="container">
+  <div className="row justify-content-center">
       {data.ciudades ? (
         data.ciudades.map((item, i) => (
-          <div key={i}>
-            <Link to={`/cities/${item.title}`}>
-              <div className="noLink">{item.name}</div>
-              <div className="noLink2">({item.country.toUpperCase()})</div>
-              <img className={"marg"} src={item.image} alt="" />
-            </Link>
-            <hr />
-          </div>
+              <div key={i} className="col-xl-4 col-lg-4 col-md-12 col-sm-12 marg2">
+                <Link to={`/cities/${item.title}`}>
+                  <p className="noLink p">{item.name}</p>
+                  <p className="noLink2 p">({item.country.toUpperCase()})</p>
+                  <img className={"marg"} src={item.image} alt="" />
+                </Link>
+                <hr />
+              </div>
         ))
-      ) : (
-        <div className="flexCont">
+        ) : (
+          <div className="flexCont">
           <img className="loading" src={gif} alt="" />
         </div>
       )}
+      </div>
+    </div>
     </div>
   );
 };

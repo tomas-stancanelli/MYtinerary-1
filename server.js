@@ -28,7 +28,6 @@ db.once('open', function () {
 
 
 
-// router.get('/', (req, res) => res.send("Hola gatito, estoy en el puerto 5000 wacho"));
 
 // app.use('/', router);
 

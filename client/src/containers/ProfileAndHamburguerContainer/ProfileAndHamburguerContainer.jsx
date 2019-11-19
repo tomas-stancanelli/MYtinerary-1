@@ -6,8 +6,7 @@ class ProfileAndHamburguerContainer extends Component {
       super(props)
     
       this.state = {
-          show: false,
-          dataDismiss: "modal"
+          show: false
       };
       this.changeShow = this.changeShow.bind(this)
     };

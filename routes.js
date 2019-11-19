@@ -10,5 +10,8 @@ router.get('/api/cities', async (req, res) => {
     res.json({ ciudades })
 });
 
+router.get('/', (req, res) => res.send("Hola amigo, estas en el puerto 5000"));
+
+
 
 module.exports = router;

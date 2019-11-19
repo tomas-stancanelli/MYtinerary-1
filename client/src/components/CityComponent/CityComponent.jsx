@@ -5,7 +5,7 @@ import gif from "../../assets/loading.gif";
 const CityComponent = ({ singleCity }) => {
   return (
     <div>
-      <h1 className={"myFont6"}>Welcome to the city of</h1>
+      <h1 className={"myFont6"}>Welcome to</h1>
       {singleCity ? (
         <div>
           <h1 className={"myFont6"}>{singleCity.name}</h1>
@@ -14,7 +14,7 @@ const CityComponent = ({ singleCity }) => {
       ):
       (
         <div className="flexCont">
-          <img className="loading" src={gif} alt="" />
+          <img className="loading2" src={gif} alt="" />
         </div>
       )
       }

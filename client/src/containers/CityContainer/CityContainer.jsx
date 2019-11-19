@@ -26,7 +26,7 @@ export default class CityContainer extends Component {
   async getCityData() {
     await this.getData();
     this.state.data.ciudades.filter(ciudad => {
-      if (ciudad.title == this.props.match.params.id) {
+      if (ciudad.title === this.props.match.params.id) {
         this.setState({ singleCity: ciudad });
       }
     });
