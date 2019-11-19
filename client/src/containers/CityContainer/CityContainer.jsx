@@ -13,7 +13,6 @@ export default class CityContainer extends Component {
   }
 
   componentDidMount() {
-    this.getData();
     this.getCityData();
   }
 
@@ -25,11 +24,14 @@ export default class CityContainer extends Component {
 
   async getCityData() {
     await this.getData();
-    this.state.data.ciudades.filter(ciudad => {
-      if (ciudad.title === this.props.match.params.id) {
-        this.setState({ singleCity: ciudad });
+    if (!!this.state.data.ciudades) {
+      for (let i = 0; i < this.state.data.ciudades.length; i++) {
+        console.log("ASDASD", this.state.data.ciudades);
+        if (this.state.data.ciudades[i].title === this.props.match.params.id) {
+          await this.setState({ singleCity: this.state.data.ciudades[i] });
+        }
       }
-    });
+    }
   }
 
   render() {

@@ -19,18 +19,16 @@ const HomeComponent = () => {
   return (
     <div className={"Apps"}>
       <div className={"cen"}>
-
-      <h2 className={"myFont marg"}>
-        Find your perfect trip,<br/>
-        designed by insiders who know and love their
-        cities.
-      </h2>
+        <h2 className={"myFont marg"}>
+          Find your perfect trip,
+          <br />
+          designed by insiders who know and love their cities.
+        </h2>
       </div>
       <h3 className={"myFont myFont2 marg3"}>View all cities here!</h3>
       <Link to="/search">
         <div className={"two"}>
-
-        <div className={"arrow marg"}></div>
+          <div className={"arrow marg"}></div>
         </div>
       </Link>
 
@@ -44,11 +42,15 @@ const HomeComponent = () => {
           <div className="carousel-inner">
             <div className="carousel-item active one">
               <Link to="/cities/paris">
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={paris}
-                  alt="First slide"
-                />
+                {/* <span className="pos"></span> */}
+                <div className={"pos"}>
+                  <span className={"pos"}></span>
+                  <img
+                    className="col-lg-6 col-md-6 col-sm-6 images"
+                    src={paris}
+                    alt="First slide"
+                  />
+                </div>
               </Link>
               <Link to={`/cities/amsterdam`}>
                 <img
