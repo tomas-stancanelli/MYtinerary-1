@@ -11,14 +11,15 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
       <nav className="navbar navbar-light light-blue lighten-4">
         <div className="navbar-brand">
           <div className={"flex-separated"}>
-            <a href="#">
+            
               <img
                 className={"user-img"}
                 src={user}
                 onClick={changeShow}
                 data-dismiss={show ? "modal" : ""}
+                alt=""
               ></img>
-            </a>
+            
             {show && (
               <div className={"flexStart"}>
                 <div className={"modal2"}>

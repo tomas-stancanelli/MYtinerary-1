@@ -11,7 +11,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.set('useNewUrlParser', true)
+
+mongoose.connect(url, { useUnifiedTopology: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
 

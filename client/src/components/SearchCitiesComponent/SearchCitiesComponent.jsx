@@ -3,9 +3,10 @@ import gif from "../../assets/loading.gif";
 import "./SearchCitiesComponentStyle.css";
 import { Link } from "react-router-dom";
 
-const SearchCitiesComponent = ({ onChange, data }) => {
+const SearchCitiesComponent = ({ onChange, data, cityNotFound }) => {
   return (
     <div>
+      {console.log("citynotfound en component", cityNotFound)}
       <h1 className="noLink5">Search for a City</h1>
       <label htmlFor="filter"></label>
       <input
@@ -15,26 +16,33 @@ const SearchCitiesComponent = ({ onChange, data }) => {
         placeholder="Type a city here..."
       />
 
-<div className="container">
-  <div className="row justify-content-center">
-      {data.ciudades ? (
-        data.ciudades.map((item, i) => (
-              <div key={i} className="col-xl-4 col-lg-4 col-md-12 col-sm-12 marg2">
-                <Link to={`/cities/${item.title}`}>
-                  <p className="noLink p">{item.name}</p>
-                  <p className="noLink2 p">({item.country.toUpperCase()})</p>
-                  <img className={"marg"} src={item.image} alt="" />
-                </Link>
-                <hr />
-              </div>
-        ))
-        ) : (
-          <div className="flexCont">
-          <img className="loading" src={gif} alt="" />
+      <div className="container">
+        <div className="row justify-content-center">
+          {data.ciudadesFromRoutes ? (
+            !cityNotFound ? (
+              data.ciudadesFromRoutes.map((item, i) => (
+                <div
+                  key={i}
+                  className="col-xl-4 col-lg-4 col-md-12 col-sm-12 marg2"
+                >
+                  <Link to={`/cities/${item.title}`}>
+                    <p className="noLink p">{item.name}</p>
+                    <p className="noLink2 p">({item.country.toUpperCase()})</p>
+                    <img className={"marg"} src={item.image} alt="" />
+                  </Link>
+                  <hr />
+                </div>
+              ))
+            ) : (
+              <h2>We could not found any city that matches your description. Would you like to add the city to our database?</h2>
+            )
+          ) : (
+            <div className="flexCont">
+              <img className="loading" src={gif} alt="" />
+            </div>
+          )}
         </div>
-      )}
       </div>
-    </div>
     </div>
   );
 };

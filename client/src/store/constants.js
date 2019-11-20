@@ -1,0 +1,1 @@
+export const FETCH_ALL_CITIES = 'FETCH_ALL_CITIES'
