@@ -20,8 +20,9 @@ db.once('open', function () {
   app.listen(port, () => console.log(`server running on port ${port}`))
   console.log("Mongoose is conected!")
 
+  
   app.use('/', routes)
-
+  
 });
 
 
@@ -30,13 +31,18 @@ db.once('open', function () {
 
 
 
+// db.collection("itineraries").save(name, (err, result) => {
+//             if(err) { 
+//               console.log(err);
+//             }})
+
 
 // app.use('/', router);
 
 // app.get('/test', (req, res) => res.send("funciona ameo"));
 
 // app.post('/api/world', (req, res) => {
-//   console.log(req.body);
+  //   console.log(req.body);
 //   res.send(
 //     `I received your POST request. This is what you sent me: ${req.body.post}`,
 //   );

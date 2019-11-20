@@ -31,18 +31,6 @@ class SearchCitiesContainer extends Component {
     });
   }
 
-  // componentWillMount() {
-  //   this.getData();
-  // }
-
-  // async getData() {
-  //   await fetch("/api/cities")
-  //     .then(response => response.json())
-  //     .then(data => this.setState({ data: data, citiesFilter: data }));
-  // }
-
-  //FALTA TRAER LA DATA DE REDUX AL STATE PARA HACER ANDAR EL FILTRO, VOLVER UN TOQUE ATRAS. REFACTOREAR EL FILTRO
-
   filterCities() {
     if (this.state.data && this.state.inputValue !== "") {
       let citiesArray = this.state.citiesFilter.ciudadesFromRoutes.filter(
@@ -53,25 +41,9 @@ class SearchCitiesContainer extends Component {
       this.setState({ data: { ciudadesFromRoutes: citiesArray } });
       
       this.setState({ cityNotFound: citiesArray.length === 0 })
-      
-      // let len = this.state.inputValue.length;
-      // let cityName = ciudad.name.toLowerCase();
-      // console.log("soy citiname", cityName.slice(0, len))
-      // console.log("soy input", this.state.inputValue)
-      // if (
-      //   this.state.inputValue.toLowerCase() === cityName.slice(0, len)
-      // ) {
-      //   console.log("coincide")
-      //   citiesArray.push(ciudad);
-      //   this.setState({ data: { ciudadesFromRoutes: citiesArray } });
 
-      // } else if() {
-      //   console.log("falseeeee")
-      //   this.setState({ cityNotFound: true})
-      //   //this.setState({ data: this.props.ciudades.citiesReducer.citiesArray })
-      // }
     } else {
-      this.setState({ data: this.props.ciudades.citiesReducer.citiesArray, cityNotFound: false }); //SETSTATE PARA VOLVER AL PRINCIPIO
+      this.setState({ data: this.props.ciudades.citiesReducer.citiesArray, cityNotFound: false });
     }
   }
 
@@ -79,7 +51,7 @@ class SearchCitiesContainer extends Component {
     return (
       <div>
         <SearchCitiesComponent
-          data={this.state.data} // NO TENGO QUE PASARLE ESTA DATA, TENGO QUE METERLA EN EL STATE
+          data={this.state.data}
           cityNotFound={this.state.cityNotFound}
           cityFilter={this.state.cityFilter}
           onChange={this.handleChange}
