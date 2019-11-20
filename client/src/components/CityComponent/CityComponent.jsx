@@ -8,8 +8,8 @@ const CityComponent = ({ singleCity }) => {
       <h1 className={"myFont6"}>Welcome to</h1>
       {singleCity ? (
         <div>
-          <h1 className={"myFont6"}>{singleCity.name}</h1>
-          <img className={"img"} src={singleCity.image} alt="" />
+          <h1 className={"myFont6"}>{singleCity.singleCityFromRoutes[0].name}</h1>
+          <img className={"img"} src={singleCity.singleCityFromRoutes[0].image} alt="" />
         </div>
       ):
       (

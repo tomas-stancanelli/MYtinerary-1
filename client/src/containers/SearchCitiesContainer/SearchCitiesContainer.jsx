@@ -23,7 +23,7 @@ class SearchCitiesContainer extends Component {
     this.filterCities();
   }
 
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await this.props.getAllCities();
     this.setState({
       data: this.props.ciudades.citiesReducer.citiesArray,
