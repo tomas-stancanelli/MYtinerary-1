@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const City = require('./City.js')
+const City = require('../Schemas/City.js')
 
 router.get('/api/cities', async (req, res) => {
     var ciudadesFromRoutes = await City.find(function (err, allCities) {

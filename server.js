@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var url = "mongodb+srv://carellomartino:careCARE9900@mycluster-1o7tp.mongodb.net/MYtinerary?retryWrites=true&w=majority";
 var db = mongoose.connection;
-const routes = require('./routes')
+const routes = require('./backend/Routes/index')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
