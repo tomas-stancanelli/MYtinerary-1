@@ -9,6 +9,7 @@ import LoginComponent from './components/LoginComponent/LoginComponent'
 import CreateAccountComponent from './components/CreateAccountComponent/CreateAccountComponent';
 import CityContainer from './containers/CityContainer/CityContainer';
 import SearchCitiesContainer from './containers/SearchCitiesContainer/SearchCitiesContainer';
+import AddCityComponent from './components/AddCityComponent/AddCityComponent'
 
 class Main extends React.Component {
 
@@ -26,6 +27,7 @@ class Main extends React.Component {
             <Route path='/create-account' component={CreateAccountComponent} />
             <Route path='/cities/:id' component={CityContainer} />
             <Route path='/search' component={SearchCitiesContainer} />
+            <Route path='/add-city' component={AddCityComponent}/>
           </Switch>
           <Route component={FooterComponent} />
           <Redirect exact from="/" to="/index" />

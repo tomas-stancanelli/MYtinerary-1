@@ -64,3 +64,9 @@ a:link, a:visited {
     margin-left: 100px;
     width: 60%;
 } */
+
+
+.red {
+    color: blue;
+    text-decoration: underline;
+}

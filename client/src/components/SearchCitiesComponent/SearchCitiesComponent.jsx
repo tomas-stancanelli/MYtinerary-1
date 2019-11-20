@@ -34,7 +34,7 @@ const SearchCitiesComponent = ({ onChange, data, cityNotFound }) => {
                 </div>
               ))
             ) : (
-              <h2>We could not found any city that matches your description. Would you like to add the city to our database?</h2>
+              <h2>We could not found any city that matches your description. Would you like to <Link to={'/add-city'}><span className={"red"}>add the city to our database?</span></Link></h2>
             )
           ) : (
             <div className="flexCont">

@@ -24,13 +24,11 @@ class SearchCitiesContainer extends Component {
   }
 
   async componentWillMount() {
-    console.log(this.props)
     await this.props.getAllCities();
     this.setState({
       data: this.props.ciudades.citiesReducer.citiesArray,
       citiesFilter: this.props.ciudades.citiesReducer.citiesArray
     });
-    console.log(this.props)
   }
 
   // componentWillMount() {
@@ -52,9 +50,8 @@ class SearchCitiesContainer extends Component {
           this.state.inputValue.toLowerCase() ===
           ciudad.name.toLowerCase().slice(0, this.state.inputValue.length)
       );
-      console.log("citiesARRRR", citiesArray)
       this.setState({ data: { ciudadesFromRoutes: citiesArray } });
-
+      
       this.setState({ cityNotFound: citiesArray.length === 0 })
       
       // let len = this.state.inputValue.length;
@@ -74,7 +71,7 @@ class SearchCitiesContainer extends Component {
       //   //this.setState({ data: this.props.ciudades.citiesReducer.citiesArray })
       // }
     } else {
-      this.setState({ data: this.props.ciudades.citiesReducer.citiesArray }); //SETSTATE PARA VOLVER AL PRINCIPIO
+      this.setState({ data: this.props.ciudades.citiesReducer.citiesArray, cityNotFound: false }); //SETSTATE PARA VOLVER AL PRINCIPIO
     }
   }
 
