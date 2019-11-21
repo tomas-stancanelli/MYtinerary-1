@@ -10,6 +10,7 @@ import CreateAccountComponent from './components/CreateAccountComponent/CreateAc
 import CityContainer from './containers/CityContainer/CityContainer';
 import SearchCitiesContainer from './containers/SearchCitiesContainer/SearchCitiesContainer';
 import AddCityComponent from './components/AddCityComponent/AddCityComponent'
+import CityItinerariesContainer from './containers/CityItinerariesContainer/CityItinerariesContainer';
 
 class Main extends React.Component {
 
@@ -28,6 +29,7 @@ class Main extends React.Component {
             <Route path='/cities/:id' component={CityContainer} />
             <Route path='/search' component={SearchCitiesContainer} />
             <Route path='/add-city' component={AddCityComponent}/>
+            <Route path='/itineraries/:city_name' component={CityItinerariesContainer}/>
           </Switch>
           <Route component={FooterComponent} />
           <Redirect exact from="/" to="/index" />

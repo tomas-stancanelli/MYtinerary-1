@@ -11,9 +11,10 @@ class CityContainer extends Component {
   }
 
   render() {
+    console.log("Soy props en city container",this.props)
     return (
       <div>
-        <CityComponent singleCity={this.props.singleCity.singleCityReducer.singleCity} />
+        <CityComponent singleCity={this.props.singleCity.singleCityReducer.singleCity} city_name={this.props.city_name} />
       </div>
     );
   }

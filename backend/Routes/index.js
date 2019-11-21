@@ -4,9 +4,9 @@ const citiesRouter = require('./citiesRoutes')
 const homeRouter = require('./homeRoute')
 const itineraryRouter = require('./itineraryRoutes')
 
-Router.use(citiesRouter)
-Router.use(homeRouter)
-Router.use(itineraryRouter)
+Router.use('/api/cities/', citiesRouter)
+Router.use('/api',homeRouter)
+Router.use('/api/itineraries/',itineraryRouter)
 
 
 module.exports = Router;

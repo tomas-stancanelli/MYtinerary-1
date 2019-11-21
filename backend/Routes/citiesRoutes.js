@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const City = require('../Schemas/City.js')
 
-router.get('/api/cities', async (req, res) => {
+router.get('/', async (req, res) => {
     var ciudadesFromRoutes = await City.find(function (err, allCities) {
         if (err) return console.error(err);
         console.log("Todas las ciudades desde City.find", allCities);
@@ -10,7 +10,8 @@ router.get('/api/cities', async (req, res) => {
     res.json({ ciudadesFromRoutes })
 });
 
-router.get('/api/cities/:id', async (req, res) => {
+
+router.get('/:id', async (req, res) => {
     var singleCityFromRoutes = await City.find({ "title": req.params.id }, function (err, singleCity) {
         if (err) return console.error(err);
         console.log("Printing singleCity", singleCity);
