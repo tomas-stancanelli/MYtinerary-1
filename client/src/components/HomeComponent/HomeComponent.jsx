@@ -2,6 +2,8 @@ import React from "react";
 import "./HomeComponentStyle.css";
 import { Link } from "react-router-dom";
 import gif from "../../assets/loading.gif";
+import backgroundPrev from './HomeComponentImages/pngguru.com.png'
+import backgroundNext from './HomeComponentImages/pngguru2.com.png'
 
 const HomeComponent = ({ cities, nums }) => {
   if (!!cities) {
@@ -252,6 +254,7 @@ const HomeComponent = ({ cities, nums }) => {
                 <span
                   className="carousel-control-prev-icon"
                   aria-hidden="true"
+                  style={{height: "80px", width: "80px", backgroundImage: `url(${backgroundPrev})`}}
                 ></span>
                 <span className="sr-only">Previous</span>
               </a>
@@ -264,6 +267,7 @@ const HomeComponent = ({ cities, nums }) => {
                 <span
                   className="carousel-control-next-icon"
                   aria-hidden="true"
+                  style={{height: "80px", width: "80px", backgroundImage: `url(${backgroundNext})`}}
                 ></span>
                 <span className="sr-only">Next</span>
               </a>

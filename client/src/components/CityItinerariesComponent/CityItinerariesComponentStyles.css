@@ -41,7 +41,7 @@ body,
 }
 
 .blue {
-  color: blue;
+  color: blue!important;
   text-decoration: underline;
 }
 

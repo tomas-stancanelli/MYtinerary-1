@@ -70,7 +70,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                                 </div>
                               </div>
 
-                              <div>
+                              <div className={"blue"}>
                                 {/* {item.hashtags} */}
                                 {item.hashtags.map((hashtags, i) => (
                                   <div key={i} className={"hashLinks"}>
