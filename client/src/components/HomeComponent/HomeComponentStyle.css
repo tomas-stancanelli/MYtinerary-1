@@ -128,10 +128,28 @@
   text-align: center;
 }
 
+.posi {
+  position: relative;
+}
+
 .pos {
   display: inline;
 }
 
+.inside2 {
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  font-size: 3vw;
+  color:white;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 
 /* 
 margin-top: 25px;

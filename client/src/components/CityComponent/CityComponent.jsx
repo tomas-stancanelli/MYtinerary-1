@@ -12,12 +12,13 @@ const CityComponent = ({ singleCity, city_name }) => {
           <h1 className={"myFont6"}>
             {singleCity.singleCityFromRoutes[0].name}
           </h1>
+          <h3 className={"marg"}>Click the picture to see the itineraries for this city</h3>
+          <Link to={`/itineraries/${city_name}`}>
           <img
             className={"img"}
             src={singleCity.singleCityFromRoutes[0].image}
             alt=""
           />
-          <Link to={`/itineraries/${city_name}`}>
             <h3 className={"marg"}>See itineraries for this city</h3>
             <div className={"two"}>
               <div className={"arrow marg"}></div>

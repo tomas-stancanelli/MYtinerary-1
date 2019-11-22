@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const SearchCitiesComponent = ({ onChange, data, cityNotFound }) => {
   return (
     <div>
-      {console.log("data en Component", data)}
       <h1 className="noLink5">Search for a City</h1>
       <label htmlFor="filter"></label>
       <input

@@ -14,9 +14,9 @@ router.get('/', async (req, res) => {
 router.get('/:city_name', async (req, res) => {
     var itinerariesForACity = await Itinerary.find({ "cityId": req.params.city_name }, function (err, itineraries) {
         if (err) return console.error(err);
-        console.log('Printing itineraries for a city')
+        console.log('Printing itineraries for a single city')
     })
-    res.json({ itineraries })
+    res.json({ itinerariesForACity })
 })
 
 

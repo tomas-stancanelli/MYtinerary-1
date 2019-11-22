@@ -16,7 +16,7 @@ var Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
 //MUY IMPORTANTE, SI NO ESTÁ RUTEADO HACIA EL SERVER NO LEVANTA LOS SCHEMAS
 
-// var newItinerary = new Itinerary({ title: 'Parc Güell', profile_pic: 'https://barcelonando.com/es/wp-content/uploads/2018/12/park-guell-barcelona.jpeg', rating: 10, duration: 4, price: 180, hashtags: ['park', 'walk', 'architecture', 'art', 'color', 'fresh air', 'antonio gaudi', 'surrealism', 'mountain'], cityId: 'barcelona' });
+// var newItinerary = new Itinerary({ title: 'Buenos Aires Bike', profile_pic: 'https://www.picmonkey.com/blog/wp-content/uploads/2016/11/1-intro-photo-final.jpg', rating: 10, duration: 4, price: 180, hashtags: ['bike', 'exercise', 'health', 'fresh air', 'palermo', 'park', 'bike ride'], cityId: 'buenos_aires', user: "John Doe" });
 // console.log(newItinerary.title, newItinerary.rating);
 
 // newItinerary.save(function (err, newItinerary) {

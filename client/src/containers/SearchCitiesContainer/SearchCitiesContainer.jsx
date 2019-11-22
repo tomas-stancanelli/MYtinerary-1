@@ -48,7 +48,6 @@ class SearchCitiesContainer extends Component {
   }
 
   render() {
-    console.log("this.props en Container", this.props)
     return (
       <div>
         <SearchCitiesComponent

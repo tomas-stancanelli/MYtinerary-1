@@ -1,168 +1,282 @@
 import React from "react";
 import "./HomeComponentStyle.css";
-// import arrow from "./HomeComponentImages/circled-right-2.jpg";
-import barcelona from "./HomeComponentImages/barcelona.jpg";
-import newYork from "./HomeComponentImages/newYork.jpg";
-import amsterdam from "./HomeComponentImages/amsterdam.jpg";
-import paris from "./HomeComponentImages/paris.jpg";
-import prague from "./HomeComponentImages/prague.jpg";
-import london from "./HomeComponentImages/london.jpg";
-import mexico from "./HomeComponentImages/mexico.jpg";
-import montevideo from "./HomeComponentImages/montevideo.jpg";
-import rio from "./HomeComponentImages/rio.jpg";
-import roma from "./HomeComponentImages/roma.jpg";
-import tokyo from "./HomeComponentImages/tokyo.jpg";
-import athens from "./HomeComponentImages/athens.jpg";
 import { Link } from "react-router-dom";
+import gif from "../../assets/loading.gif";
 
-const HomeComponent = () => {
-  return (
-    <div className={"Apps"}>
-      <div className={"cen"}>
-        <h2 className={"myFont marg"}>
-          Find your perfect trip,
-          <br />
-          designed by insiders who know and love their cities.
-        </h2>
-      </div>
-      <h3 className={"myFont myFont2 marg3"}>View all cities here!</h3>
-      <Link to="/search">
-        <div className={"two"}>
-          <div className={"arrow marg"}></div>
+const HomeComponent = ({ cities, nums }) => {
+  if (!!cities) {
+    return (
+      <div className={"Apps"}>
+        <div className={"cen"}>
+          <h2 className={"myFont marg"}>
+            Find your perfect trip,
+            <br />
+            designed by insiders who know and love their cities.
+          </h2>
         </div>
-      </Link>
+        <h3 className={"myFont myFont2 marg3"}>View all cities here!</h3>
+        <Link to="/search">
+          <div className={"two"}>
+            <div className={"arrow marg"}></div>
+          </div>
+        </Link>
 
-      <h2 className={"myFont lefty"}>Popular MYtinerarys</h2>
-      <div className={"flexImg"}>
-        <div
-          id="carouselExampleControls"
-          className="carousel slide one"
-          data-ride="carousel"
-        >
-          <div className="carousel-inner">
-            <div className="carousel-item active one">
-              <Link to="/cities/paris">
-                {/* <span className="pos"></span> */}
-                <div className={"pos"}>
-                  <span className={"pos"}></span>
-                  <img
-                    className="col-lg-6 col-md-6 col-sm-6 images"
-                    src={paris}
-                    alt="First slide"
-                  />
+        <h2 className={"myFont lefty"}>Popular MYtinerarys</h2>
+
+        {cities !== null &&
+        cities !== undefined &&
+        cities.ciudadesFromRoutes &&
+        nums.length == 12 ? (
+          <div className={"flexImg"}>
+            <div
+              id="carouselExampleControls"
+              className="carousel slide one"
+              data-ride="carousel"
+            >
+              {
+                <div className="carousel-inner">
+                  <div className="carousel-item active one">
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[0]].title}`}
+                    >
+                      {/* <span className="pos"></span> */}
+                      <div className={"pos"}>
+                        <span className={"pos"}></span>
+                        <span className={"posi"}>
+                          <img
+                            className="col-lg-6 col-md-6 col-sm-6 images"
+                            src={cities.ciudadesFromRoutes[nums[0]].image}
+                            alt="First slide"
+                          />
+                          <span className={"inside2"}>
+                            {cities.ciudadesFromRoutes[
+                              nums[0]
+                            ].name.toUpperCase()}
+                          </span>
+                        </span>
+                      </div>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[1]].title}`}
+                    >
+                      <span className={"posi"}>
+                        <img
+                          className="col-lg-6 col-md-6 col-sm-6 images"
+                          src={cities.ciudadesFromRoutes[nums[1]].image}
+                          alt="Second slide"
+                        />
+                        <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[1]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[2]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[2]].image}
+                        alt="Third slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[2]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[3]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[3]].image}
+                        alt="Third slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[3]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="carousel-item one">
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[4]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[4]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[4]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[5]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[5]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[5]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[6]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[6]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[6]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[7]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[7]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[7]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="carousel-item one">
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[8]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[8]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[8]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${cities.ciudadesFromRoutes[nums[9]].title}`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[9]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[9]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${
+                        cities.ciudadesFromRoutes[nums[10]].title
+                      }`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[10]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[10]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                    <Link
+                      to={`/cities/${
+                        cities.ciudadesFromRoutes[nums[11]].title
+                      }`}
+                    >
+                      <span className={"posi"}>
+                      <img
+                        className="col-lg-6 col-md-6 col-sm-6 images"
+                        src={cities.ciudadesFromRoutes[nums[11]].image}
+                        alt="First slide"
+                      />
+                      <span className={"inside2"}>
+                          {cities.ciudadesFromRoutes[
+                            nums[11]
+                          ].name.toUpperCase()}
+                        </span>
+                      </span>
+                    </Link>
+                  </div>
                 </div>
-              </Link>
-              <Link to={`/cities/amsterdam`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={amsterdam}
-                  alt="Second slide"
-                />
-              </Link>
-              <Link to={`/cities/new_york`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={newYork}
-                  alt="Third slide"
-                />
-              </Link>
-              <Link to={`/cities/barcelona`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={barcelona}
-                  alt="Third slide"
-                />
-              </Link>
-            </div>
-            <div className="carousel-item one">
-              <Link to={`/cities/prague`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={prague}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/london`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={london}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/mexico`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={mexico}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/montevideo`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={montevideo}
-                  alt="First slide"
-                />
-              </Link>
-            </div>
-            <div className="carousel-item one">
-              <Link to={`/cities/athens`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={athens}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/tokyo`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={tokyo}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/rome`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={roma}
-                  alt="First slide"
-                />
-              </Link>
-              <Link to={`/cities/rio_de_janeiro`}>
-                <img
-                  className="col-lg-6 col-md-6 col-sm-6 images"
-                  src={rio}
-                  alt="First slide"
-                />
-              </Link>
+              }
+              <a
+                className="carousel-control-prev"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="sr-only">Previous</span>
+              </a>
+              <a
+                className="carousel-control-next"
+                href="#carouselExampleControls"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="sr-only">Next</span>
+              </a>
             </div>
           </div>
-          <a
-            className="carousel-control-prev"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="prev"
-          >
-            <span
-              className="carousel-control-prev-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Previous</span>
-          </a>
-          <a
-            className="carousel-control-next"
-            href="#carouselExampleControls"
-            role="button"
-            data-slide="next"
-          >
-            <span
-              className="carousel-control-next-icon"
-              aria-hidden="true"
-            ></span>
-            <span className="sr-only">Next</span>
-          </a>
-        </div>
+        ) : (
+          <div className="flexCont">
+            <img className="loading4" src={gif} alt="" />
+          </div>
+        )}
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default HomeComponent;
