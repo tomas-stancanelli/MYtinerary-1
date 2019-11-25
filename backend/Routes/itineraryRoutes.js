@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:city_name', async (req, res) => {
-    var itinerariesForACity = await Itinerary.find({ "cityId": req.params.city_name }, function (err, itineraries) {
+    var itinerariesForACity = await Itinerary.find({ "city": ((req.params.city_name.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(" "))) }, function (err, itineraries) {
         if (err) return console.error(err);
         console.log('Printing itineraries for a single city')
     })
