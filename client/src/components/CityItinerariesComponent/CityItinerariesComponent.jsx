@@ -176,12 +176,16 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                           </a>
                         </div>
                         <br />
-                      <div className={"comments"}>
-                        <label>
-                          <span className={"labLeft"}>Comments</span>
-                          <input className={"inp"} type="text" placeholder="Your Comment..." />
-                        </label>
-                      </div>
+                        <div className={"comments"}>
+                          <label>
+                            <span className={"labLeft"}>Comments</span>
+                            <input
+                              className={"inp"}
+                              type="text"
+                              placeholder="Your Comment..."
+                            />
+                          </label>
+                        </div>
                       </div>
                     </div>
                   )
@@ -190,8 +194,8 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
             </div>
           ) : (
             <h1>
-              There are no itineraries available for{" "}
-              {cityData.singleCityFromRoutes[0].name}. Would you like to{" "}
+              There are no itineraries available for&nbsp;
+              {cityData.singleCityFromRoutes[0].name}. Would you like to&nbsp;
               <span className={"blue"}>
                 <Link to={"/itineraries/add"}>add one?</Link>
               </span>
