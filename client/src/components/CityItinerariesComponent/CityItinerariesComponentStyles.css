@@ -106,3 +106,15 @@ body,
   justify-content: center;
   align-content: center;
 }
+
+.comments {
+  margin-top: 1%;
+}
+
+.inp {
+  margin-left: 1%;
+}
+
+.labLeft {
+  text-align: left;
+}

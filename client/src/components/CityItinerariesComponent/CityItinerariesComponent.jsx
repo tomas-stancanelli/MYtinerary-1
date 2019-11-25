@@ -2,8 +2,8 @@ import React from "react";
 import gif from "../../assets/loading.gif";
 import "./CityItinerariesComponentStyles.css";
 import { Link } from "react-router-dom";
-import backgroundPrev from './CityItinerariesComponentImages/pngguru.com.png'
-import backgroundNext from './CityItinerariesComponentImages/pngguru2.com.png'
+import backgroundPrev from "./CityItinerariesComponentImages/pngguru.com.png";
+import backgroundNext from "./CityItinerariesComponentImages/pngguru2.com.png";
 
 const CityItinerariesComponent = ({ itineraries, cityData }) => {
   return (
@@ -44,7 +44,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                                   src={item.userPhoto}
                                   alt=""
                                 />
-                                <div>{item.user}</div>
+                                <div>{item.username}</div>
                               </div>
                             </div>
 
@@ -103,7 +103,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                         aria-label="Toggle navigation"
                       >
                         View All Activities
-                        <br/>
+                        <br />
                       </button>
 
                       <div
@@ -120,17 +120,19 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                               i == 0 ? (
                                 <div key={i} className="carousel-item active">
                                   <div className={"flexContCar"}>
-
-                                  <div className={"bold"}>{item.Name}</div>
-                              <div className={"fullToggle2"}>{item.Comments}</div>
-                                </div>
+                                    <div className={"bold"}>{item.Name}</div>
+                                    <div className={"fullToggle2"}>
+                                      {item.Comments}
+                                    </div>
                                   </div>
+                                </div>
                               ) : (
                                 <div key={i} className="carousel-item">
                                   <div className={"flexContCar"}>
-                                    
-                                  <div className={"bold"}>{item.Name}</div>
-                                  <div className={"fullToggle2"}>{item.Comments}</div>
+                                    <div className={"bold"}>{item.Name}</div>
+                                    <div className={"fullToggle2"}>
+                                      {item.Comments}
+                                    </div>
                                   </div>
                                 </div>
                               )
@@ -145,7 +147,12 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                             <span
                               className="carousel-control-prev-icon"
                               aria-hidden="true"
-                              style={{height: "30px", width: "30px", backgroundImage: `url(${backgroundPrev})`, marginLeft: "70px"}}
+                              style={{
+                                height: "30px",
+                                width: "30px",
+                                backgroundImage: `url(${backgroundPrev})`,
+                                marginLeft: "70px"
+                              }}
                             ></span>
                             <span className="sr-only">Previous</span>
                           </a>
@@ -158,11 +165,23 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                             <span
                               className="carousel-control-next-icon"
                               aria-hidden="true"
-                              style={{height: "30px", width: "30px", backgroundImage: `url(${backgroundNext})`, marginRight: "70px"}}
+                              style={{
+                                height: "30px",
+                                width: "30px",
+                                backgroundImage: `url(${backgroundNext})`,
+                                marginRight: "70px"
+                              }}
                             ></span>
                             <span className="sr-only">Next</span>
                           </a>
                         </div>
+                        <br />
+                      <div className={"comments"}>
+                        <label>
+                          <span className={"labLeft"}>Comments</span>
+                          <input className={"inp"} type="text" placeholder="Your Comment..." />
+                        </label>
+                      </div>
                       </div>
                     </div>
                   )
