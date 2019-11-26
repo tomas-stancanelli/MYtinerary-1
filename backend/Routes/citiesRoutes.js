@@ -20,5 +20,16 @@ router.get('/:id', async (req, res) => {
 });
 
 
+router.post('/addcity', async function (req, res) {
+    try {
+        const city = new City(req.body);
+        await city.save();
+        res.send(city);
+    } catch (e) {
+        res.send(e);
+    }
+});
+
+
 
 module.exports = router;
