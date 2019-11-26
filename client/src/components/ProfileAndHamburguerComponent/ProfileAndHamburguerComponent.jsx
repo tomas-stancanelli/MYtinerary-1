@@ -11,14 +11,15 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
       <nav className="navbar navbar-light light-blue lighten-4">
         <div className="navbar-brand">
           <div className={"flex-separated"}>
-            <a href="#">
+            
               <img
                 className={"user-img"}
                 src={user}
                 onClick={changeShow}
                 data-dismiss={show ? "modal" : ""}
+                alt=""
               ></img>
-            </a>
+            
             {show && (
               <div className={"flexStart"}>
                 <div className={"modal2"}>
@@ -78,8 +79,8 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
           className="navbar-toggler toggler-example button"
           type="button"
           data-toggle="collapse"
-          data-target="#navbarSupportedContent1"
-          aria-controls="navbarSupportedContent1"
+          data-target="#navbarSupportedContentx"
+          aria-controls="navbarSupportedContentx"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
@@ -88,7 +89,7 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
           </span>
         </button>
       </nav>
-      <div className="collapse navbar-collapse" id="navbarSupportedContent1">
+      <div className="collapse navbar-collapse" id="navbarSupportedContentx">
         <ul className="navbar-nav mr-auto navDown">
           <li className="nav-item active">
             <a className="nav-link" href="javascript;">

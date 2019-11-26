@@ -4,22 +4,25 @@ const bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var url = "mongodb+srv://carellomartino:careCARE9900@mycluster-1o7tp.mongodb.net/MYtinerary?retryWrites=true&w=majority";
 var db = mongoose.connection;
-const routes = require('./routes')
+const routes = require('./backend/Routes/index')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect(url, { useNewUrlParser: true });
+mongoose.set('useNewUrlParser', true)
+
+mongoose.connect(url, { useUnifiedTopology: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
 
   app.listen(port, () => console.log(`server running on port ${port}`))
   console.log("Mongoose is conected!")
 
+  
   app.use('/', routes)
-
+  
 });
 
 
@@ -28,13 +31,18 @@ db.once('open', function () {
 
 
 
+// db.collection("itineraries").save(name, (err, result) => {
+//             if(err) { 
+//               console.log(err);
+//             }})
+
 
 // app.use('/', router);
 
 // app.get('/test', (req, res) => res.send("funciona ameo"));
 
 // app.post('/api/world', (req, res) => {
-//   console.log(req.body);
+  //   console.log(req.body);
 //   res.send(
 //     `I received your POST request. This is what you sent me: ${req.body.post}`,
 //   );
