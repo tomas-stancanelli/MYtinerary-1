@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 class CityContainer extends Component {
 
-  async componentDidMount() {
+  async UNSAFE_componentWillMount() {
     await this.props.getSingleCity(this.props.city_name)
     this.setState({data: this.props})
   }

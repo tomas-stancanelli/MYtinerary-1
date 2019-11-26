@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import CityItinerariesComponent from "../../components/CityItinerariesComponent/CityItinerariesComponent";
+import ActivitiesComponent from "../../components/ActivitiesComponent/ActivitiesComponent";
 import { getItinerariesForACity } from "../../store/action-creators/itinerariesActions";
 import { connect } from "react-redux";
 
-class CityItinerariesContainer extends Component {
-  async UNSAFE_componentWillMount() {
+class ActivitiesContainer extends Component {
+  async componentDidMount() {
     await this.props.getItineraries(this.props.city_name);
   }
 
   render() {
+      console.log("PROPS", this.props)
     return (
       <div>
-        <CityItinerariesComponent
-          city_name={this.props.city_name}
-          itineraries={this.props.itineraries}
-          cityData={this.props.itineraries.singleCityReducer.singleCity}
+        <ActivitiesComponent
+        //   city_name={this.props.city_name}
+        //   itineraries={this.props.itineraries}
         />
       </div>
     );
@@ -23,8 +23,8 @@ class CityItinerariesContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    city_name: ownProps.match.params.city_name,
-    itineraries: state
+    // city_name: ownProps.match.params.city_name,
+    // itineraries: state
   };
 };
 
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CityItinerariesContainer);
+)(ActivitiesContainer);

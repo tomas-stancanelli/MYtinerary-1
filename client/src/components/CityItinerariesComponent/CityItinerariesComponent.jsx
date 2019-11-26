@@ -8,7 +8,7 @@ import backgroundNext from "./CityItinerariesComponentImages/pngguru2.com.png";
 const CityItinerariesComponent = ({ itineraries, cityData }) => {
   return (
     <div className={"container2"}>
-      {cityData ? (
+      {cityData && itineraries ? (
         <div className={"container2"}>
           <div className={"col-md-12 col-sm-12"}>
             <img src={cityData.singleCityFromRoutes[0].image} alt="" />
@@ -80,7 +80,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                                 {/* {item.hashtags} */}
                                 {item.hashtags.map((hashtags, i) => (
                                   <div key={i} className={"hashLinks"}>
-                                    <a href="#">{hashtags}&nbsp;</a>
+                                    <a href="-">{hashtags}&nbsp;</a>
                                   </div>
                                 ))}
                               </div>
@@ -92,7 +92,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                       </div>
 
                       {/* ACÁ EMPIEZA EL BOTÓN DE VER MÁS PARA VER LAS ACTIVITIES DE CADA ITINERARIO */}
-
+                                  <div>
                       <button
                         className="navbar-toggler btn fullToggle"
                         type="button"
@@ -117,7 +117,7 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                         >
                           <div className="carousel-inner">
                             {item.activities.map((item, i) =>
-                              i == 0 ? (
+                              i === 0 ? (
                                 <div key={i} className="carousel-item active">
                                   <div className={"flexContCar"}>
                                     <div className={"bold"}>{item.Name}</div>
@@ -186,7 +186,9 @@ const CityItinerariesComponent = ({ itineraries, cityData }) => {
                             />
                           </label>
                         </div>
+                        </div>
                       </div>
+                      {/* en el div de arriba termina el componente */}
                     </div>
                   )
                 )}

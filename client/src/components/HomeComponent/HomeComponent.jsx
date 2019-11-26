@@ -28,7 +28,7 @@ const HomeComponent = ({ cities, nums }) => {
         {cities !== null &&
         cities !== undefined &&
         cities.ciudadesFromRoutes &&
-        nums.length == 12 ? (
+        nums.length === 12 ? (
           <div className={"flexImg"}>
             <div
               id="carouselExampleControls"

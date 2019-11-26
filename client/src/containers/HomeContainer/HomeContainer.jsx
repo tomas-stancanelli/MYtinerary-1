@@ -24,7 +24,7 @@ class HomeContainer extends Component {
   randomNum() {
     let arr = [];
     for (let i = 0; i < 12; ) {
-      let r = Math.floor(Math.random() * 30);
+      let r = Math.floor(Math.random() * 31);
       if (arr.indexOf(r) === -1) {
         arr.push(r);
         i++;
