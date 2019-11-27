@@ -19,17 +19,26 @@ router.get('/:id', async (req, res) => {
     res.json({ singleUserFromRoutes })
 });
 
-
 router.post('/adduser', async function (req, res) {
-    try {
-        const user = new User(req.body);
-        await user.save();
-        res.send(user);
-    } catch (e) {
-        res.send(e);
-    }
+    console.log('ad user gg', req.body);
+    
+    await User.find({ "email": req.body.email }, async function (err, userFound) {
+        if (userFound.length != 0) {
+            console.log('userFound', userFound);
+            
+            return res.send('x')
+        } else {
+            try {
+                const user = new User(req.body);
+                await user.save();
+                res.send(user);
+            } catch (e) {
+                console.log('error catch');
+
+                res.send(e);
+            }
+        }
+    })
 });
-
-
 
 module.exports = router;

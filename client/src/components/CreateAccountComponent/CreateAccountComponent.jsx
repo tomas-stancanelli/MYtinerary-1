@@ -1,41 +1,87 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 
-const CreateAccountComponent = () => {
+const CreateAccountComponent = (props) => {
     return (
-        <div>
-            <h1>Create your account here!</h1>
+        <Container>
+            <h4 className="mt-3 mb-4">Create your account here!</h4>
 
-            <div>
-                <label>Username:
-                    <input type="text" name="username" id=""/>
-                </label>
-                <label>Password:
-                    <input type="password" name="password" id=""/>
-                </label>
-                <label>Your Image (URL):
-                    <input type="text" name="image" id=""/>
-                </label>E-Mail:
-                <label>
-                    <input type="email" name="email" id=""/>
-                </label>
-                <label>First Name:
-                    <input type="text" name="firstName" id=""/>
-                </label>
-                <label>Last Name:
-                    <input type="text" name="lastName" id=""/>
-                </label>
-                <label>Country:
-                    <select name="country" id="">
-                        <option value="argentina">Argentina</option>
-                        <option value="uruguay">Uruguay</option>
-                        <option value="azerbaijan">Azerbaijan</option>
-                        <option value="north_korea">North Korea</option>
-                    </select>
-                </label>
-                
-            </div>
-            
-        </div>
+            <Form onSubmit={props.onSubmit}>
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Username:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="username" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Password:
+                   </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="password" type="password" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Email:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="email" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        First name:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="firstname" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Last name:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="lastname" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Country:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="country" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+                <Form.Group as={Row}>
+                    <Form.Label column sm="2">
+                        Profile photo URL:
+                    </Form.Label>
+                    <Col sm="10">
+                        <Form.Control name="image" onChange={props.onChange} />
+                    </Col>
+                </Form.Group>
+
+            </Form>
+
+        </Container>
     );
 };
 

@@ -4,8 +4,11 @@ import { connect } from "react-redux";
 import { getAllTheCities } from "../../store/action-creators/cityActions";
 
 class SearchCitiesContainer extends Component {
+
   constructor(props) {
+
     super(props);
+  
     this.state = {
       inputValue: "",
       data: [],
@@ -13,6 +16,7 @@ class SearchCitiesContainer extends Component {
       citiesArray: [],
       cityNotFound: false
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.filterCities = this.filterCities.bind(this);
   }

@@ -5,13 +5,12 @@ var userSchema = new mongoose.Schema({
     password: String,
     image: String,
     email: String,
-    firstName: String,
-    lastName: String,
+    firstname: String,
+    lastname: String,
     country: String
   });
   
-  console.log("Soy User.js")
-  var User = mongoose.model('User', userSchema);
+  var User = mongoose.model('User', userSchema, 'users');
   
   // var newCity = new City({ name: 'AAAKOAKAOKAKOA', country: 'JAKSJDAKSD' });
   // console.log(newCity.name, newCity.country);

@@ -31,5 +31,4 @@ router.post('/addcity', async function (req, res) {
 });
 
 
-
 module.exports = router;
