@@ -23,8 +23,6 @@ var itinerarySchema = new Schema({
     activities: Array
 });
 
-console.log("Soy Itinerary.js")
-
 var Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
 //MUY IMPORTANTE, SI NO ESTÁ RUTEADO HACIA EL SERVER NO LEVANTA LOS SCHEMAS

@@ -12,10 +12,6 @@ const CreateAccountComponent = (props) => {
 
             <Form onSubmit={props.onSubmit}>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-
                 <Form.Group as={Row}>
                     <Form.Label column sm="2">
                         Username:
@@ -78,6 +74,10 @@ const CreateAccountComponent = (props) => {
                         <Form.Control name="image" onChange={props.onChange} />
                     </Col>
                 </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Submit
+                </Button>
 
             </Form>
 

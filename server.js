@@ -1,10 +1,20 @@
 const express = require('express')
 const app = express()
+
 const bodyParser = require('body-parser');
+const routes = require('./backend/Routes/index')
+
 var mongoose = require('mongoose');
 var url = "mongodb+srv://carellomartino:careCARE9900@mycluster-1o7tp.mongodb.net/MYtinerary?retryWrites=true&w=majority";
 var db = mongoose.connection;
-const routes = require('./backend/Routes/index')
+
+const passport = require('./backend/config/passport');
+
+
+//passport middleware
+app.use(passport.initialize());
+//passport configuration
+//require('./backend/Config/passport');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

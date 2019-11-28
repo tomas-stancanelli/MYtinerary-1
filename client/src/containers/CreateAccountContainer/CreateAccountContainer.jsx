@@ -53,6 +53,7 @@ export default class CreateAccountContainer extends Component {
             this.setState({ image: event.target.value });
         }
 
+
     }
 
     async handleSubmit() {
