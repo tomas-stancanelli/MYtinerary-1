@@ -56,29 +56,17 @@ export default class CreateAccountContainer extends Component {
 
     }
 
-    async handleSubmit() {
-        // Axios.post('/api/users/adduser/', this.state)
-        // .then(res => {
-        //     console.log("aver")
-        //     console.log(res)
-        //     if (res.data === 'x') {
-        //         alert("ERROR: The email you entered already has an associated account");
-        //         return true
-        //     } else {
-        //         alert("Your account has been successfully created!");
-        //         return false
-        //     }
-        // })
-        // .catch(error => console.log(error))  
-        console.log(this.state);
-        
-        const resp = await axios.post('/api/users/adduser/', this.state)
-        .then((resp)=>{
-            console.log('resp Axios', resp);
-
-        });
-        
-        const data = resp.data
+    handleSubmit(e) {
+        e.preventDefault()
+        axios.post('/api/users/adduser/', this.state)
+            .then(res => {
+                if (res.data === 'x') {
+                    alert("ERROR: The email you entered already has an associated account");
+                } else {
+                    alert("Your account has been successfully created!");
+                }
+            })
+            .catch(error => console.log(error))
     }
 
     render() {

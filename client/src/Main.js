@@ -20,7 +20,7 @@ class Main extends React.Component {
 
     return (
       <div>
-        <Route component={ProfileAndHamburguerContainer} />
+         <Route component={ProfileAndHamburguerContainer} /> 
         <div className="App">
           <Route component={NavbarComponent} />
           <Switch>

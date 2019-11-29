@@ -40,7 +40,6 @@ router.post('/adduser', async function (req, res) {
                 res.send(user);
 
             } catch (e) {
-
                 console.log('error catch');
                 res.send(e);
             }
@@ -81,8 +80,7 @@ router.post('/login', async function (req, res) {
     })
 });
 
-router.get('/test', passport.authenticate('jwt', { session: false }), (req, res) => {
-    console.log("estoy")
+router.get('/test/login', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.user)
     User.findOne({ _id: req.user.id })
         .then(user => {
