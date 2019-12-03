@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import CreateAccountComponent from '../../components/CreateAccountComponent/CreateAccountComponent'
 import axios from "axios"
+import { connect } from "react-redux";
+import { logUser } from "../../store/action-creators/userActions";
 
-export default class CreateAccountContainer extends Component {
+class CreateAccountContainer extends Component {
 
     constructor(props) {
 
@@ -61,19 +63,29 @@ export default class CreateAccountContainer extends Component {
         e.preventDefault()
         axios.post('/api/users/adduser/', this.state)
             .then(res => {
+
                 if (res.data === 'x') {
+
                     alert("ERROR: The email you entered already has an associated account");
+
                 } else {
+
                     alert("Your account has been successfully created!");
-                    axios.post('/api/users/login/', this.state)
-                        .then(res => {
-                            if (res.data === 'x') {
-                                alert("ERROR: your data appear to be wrong, enter your email and password again");
+
+                    this.props.logUserNow(this.state)
+                        .then((data) => {
+
+                            if (data === false) {
+
+                                alert("You are successfully logged!");
+                                this.props.history.push("/index");
+
                             } else {
-                                alert("You have been successfully logged in!");
+
+                                alert("Incorrect username or password")
                             }
                         })
-                        .catch(error => console.log(error))
+                        .catch(error => console.log(error));
                 }
             })
             .catch(error => console.log(error))
@@ -90,3 +102,18 @@ export default class CreateAccountContainer extends Component {
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logUserNow: user =>
+            dispatch(logUser(user))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAccountContainer);

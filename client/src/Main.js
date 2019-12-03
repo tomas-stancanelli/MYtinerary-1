@@ -12,6 +12,8 @@ import AddCityComponent from './components/AddCityComponent/AddCityComponent'
 import CityItinerariesContainer from './containers/CityItinerariesContainer/CityItinerariesContainer';
 import AddItinerary from './components/AddItineraryComponent/AddItinerary';
 import CreateAccountContainer from './containers/CreateAccountContainer/CreateAccountContainer';
+import LogOutContainer from './containers/LogOutContainer/LogOutContainer';
+
 
 class Main extends React.Component {
 
@@ -26,6 +28,7 @@ class Main extends React.Component {
           <Switch>
             <Route path='/index' component={HomeContainer} />
             <Route path='/login' component={LoginContainer} />
+            <Route path='/logout' component={LogOutContainer} />
             <Route path='/create-account' component={CreateAccountContainer} />
             <Route path='/cities/:id' component={CityContainer} />
             <Route path='/search' component={SearchCitiesContainer} />

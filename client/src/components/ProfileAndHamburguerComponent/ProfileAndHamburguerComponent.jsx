@@ -12,22 +12,24 @@ const ProfileAndHamburguerComponent = ({ show, changeShow, username }) => {
       <nav className="navbar navbar-light light-blue lighten-4">
         <div className="navbar-brand">
           <div className={"flex-separated"}>
-            
-              <img
-                className={"user-img"}
-                src={user}
-                onClick={changeShow}
-                data-dismiss={show ? "modal" : ""}
-                alt=""
-              ></img>
 
-              { username ? 
+            <img
+              className={"user-img"}
+              src={user}
+              onClick={changeShow}
+              data-dismiss={show ? "modal" : ""}
+              alt=""
+            ></img>
 
-                <h2 style={{color: "white",
-              margin: "10px"}}><i>Hola, {username}!</i></h2>
+            {username ?
 
-                : <h2></h2>
-              }
+              <h2 style={{
+                color: "white",
+                margin: "10px"
+              }}><i>Hola, {username}!</i></h2>
+
+              : <h2></h2>
+            }
 
             {show && (
               <div className={"flexStart"}>
@@ -52,25 +54,43 @@ const ProfileAndHamburguerComponent = ({ show, changeShow, username }) => {
                         </button>
                       </div>
                       <div className="modal-body create_login">
-                        <Link
-                          to="/create-account"
-                          type="button"
-                          className="btn btn-success"
-                          onClick={changeShow}
-                        >
-                          Create Account
-                        </Link>
-                        <br />
 
-                        <Link
-                          to="/login"
-                          className="btn btn-md btn-primary"
-                          aria-label="Close"
-                          data-dismiss="modal"
-                          onClick={changeShow}
-                        >
-                          Log In
+                        {username ?
+
+                          <Link
+                            to="/logout"
+                            type="button"
+                            className="btn btn-success"
+                            onClick={changeShow}
+                          >
+                            Log Out
+                          </Link>
+
+                          :
+
+                          <div>
+
+                          <Link
+                            to="/create-account"
+                            type="button"
+                            className="btn btn-success"
+                            onClick={changeShow}
+                          >
+                            Create Account
+                          </Link>
+
+                          <Link
+                            to="/login"
+                            className="btn btn-md btn-primary"
+                            aria-label="Close"
+                            data-dismiss="modal"
+                            onClick={changeShow}
+                          >
+                            Log In
                         </Link>
+                        </div>
+                      }
+
                       </div>
                       <div className="modal-footer"></div>
                     </div>

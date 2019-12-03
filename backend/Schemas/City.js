@@ -9,12 +9,4 @@ var citySchema = new mongoose.Schema({
   
   var City = mongoose.model('City', citySchema);
   
-  // var newCity = new City({ name: 'AAAKOAKAOKAKOA', country: 'JAKSJDAKSD' });
-  // console.log(newCity.name, newCity.country);
-  
-  // newCity.save(function (err, newCity) {
-  //   if (err) return console.error(err);
-  //   console.log("Guarde una ciudad en la DB!", newCity.name, newCity.country);
-  // });
-  
   module.exports = City;
