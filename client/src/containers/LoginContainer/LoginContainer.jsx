@@ -15,7 +15,8 @@ export default class LoginContainer extends Component {
             email: '',
             firstname: '',
             lastname: '',
-            country: ''
+            country: '',
+            isGoogle: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -41,6 +42,7 @@ export default class LoginContainer extends Component {
                 if (res.data === 'x') {
                     alert("ERROR: your data appear to be wrong, enter your email and password again");
                 } else {
+                
                     alert("You have been successfully logged in!");
                     console.log("LOGIN CONTAINER", this.state)
                     localStorage.setItem('name', this.state.username);
@@ -52,14 +54,23 @@ export default class LoginContainer extends Component {
     }
 
     responseGoogle = (response) => {
-    
-        console.log(response.profileObj.givenName)
-    
+        
+        this.setState({
+            username: response.profileObj.name,
+            image: response.profileObj.imageUrl, 
+            email: response.profileObj.email,
+            firstname: response.profileObj.givenName,
+            lastname: response.profileObj.familyName,
+            isGoogle: true
+        })
+
         if(!response.error) {  
             alert("Log in successful!")
         }
 
-        localStorage.setItem('name', response.profileObj.givenName);
+        axios.post('/api/users/adduser/', this.state)
+
+//        localStorage.setItem('name', response.profileObj.givenName);
     
     }
     

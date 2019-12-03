@@ -24,9 +24,11 @@ router.get('/', async (req, res) => {
 
 router.post('/adduser', async function (req, res) {
     
+    console.log(req.body)
+
     await User.find({ "email": req.body.email }, async function (err, userFound) {
 
-        if (userFound.length != 0) {
+        if (userFound.length != 0 && req.body.isGoogle === false) {
 
             console.log('userFound', userFound);            
             return res.send('x')
@@ -40,33 +42,44 @@ router.post('/adduser', async function (req, res) {
                 res.send(user);
 
             } catch (e) {
+
                 console.log('error catch');
                 res.send(e);
+
             }
         }
     })
 });
 
 router.post('/login', async function (req, res) {
+
     await User.find({ "email": req.body.email }, async function (err, userFound) {
+
         if (userFound.length != 0 && userFound[0].password === req.body.password) {
+
             const payload = {
                 id: userFound[0].id,
                 username: userFound[0].username,
                 avatarPicture: userFound[0].profilepicture
             };
+
             const options = { expiresIn: 2592000 };
+
             jwt.sign(
                 payload,
                 key.secretOrKey,
                 options,
                 (err, token) => {
+
                     if (err) {
+
                         res.json({
                             success: false,
                             token: "There was an error"
                         });
+
                     } else {
+
                         res.json({
                             success: true,
                             token: token
@@ -74,8 +87,11 @@ router.post('/login', async function (req, res) {
                     }
                 }
             );
+
         } else {
+
             return res.send('x')
+
         }
     })
 });

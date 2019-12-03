@@ -15,7 +15,8 @@ export default class CreateAccountContainer extends Component {
             email: '',
             firstname: '',
             lastname: '',
-            country: ''
+            country: '',
+            isGoogle: false
         };
 
         this.handleChange = this.handleChange.bind(this);

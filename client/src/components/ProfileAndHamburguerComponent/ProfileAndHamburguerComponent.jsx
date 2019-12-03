@@ -5,9 +5,9 @@ import "./ProfileAndHamburguerComponentStyle.css";
 import hamburguer from "./hamburguer.png";
 import { Link } from "react-router-dom";
 
-const name = localStorage.getItem('name')
+// const name = localStorage.getItem('name')
 
-console.log(name)
+// console.log(name)
 
 const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
   return (
@@ -24,12 +24,12 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
                 alt=""
               ></img>
 
-            { name ? 
+              {/* { name ? 
 
-              <h2 style={{color: "white",
-            margin: "10px"}}><i>Hola, {name}!</i></h2> : <h2></h2>
+                <h2 style={{color: "white",
+              margin: "10px"}}><i>Hola, {name}!</i></h2> : <h2></h2>
 
-          }
+            } */}
 
             {show && (
               <div className={"flexStart"}>
