@@ -6,6 +6,7 @@ import backgroundPrev from './HomeComponentImages/pngguru.com.png'
 import backgroundNext from './HomeComponentImages/pngguru2.com.png'
 
 const HomeComponent = ({ cities, nums }) => {
+  
   if (!!cities) {
     return (
       <div className={"Apps"}>
@@ -280,7 +281,7 @@ const HomeComponent = ({ cities, nums }) => {
         )}
       </div>
     );
-  }
+  } 
 };
 
 export default HomeComponent;

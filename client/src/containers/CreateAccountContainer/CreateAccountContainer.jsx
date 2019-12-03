@@ -64,6 +64,15 @@ export default class CreateAccountContainer extends Component {
                     alert("ERROR: The email you entered already has an associated account");
                 } else {
                     alert("Your account has been successfully created!");
+                    axios.post('/api/users/login/', this.state)
+                        .then(res => {
+                            if (res.data === 'x') {
+                                alert("ERROR: your data appear to be wrong, enter your email and password again");
+                            } else {
+                                alert("You have been successfully logged in!");
+                            }
+                        })
+                        .catch(error => console.log(error))
                 }
             })
             .catch(error => console.log(error))

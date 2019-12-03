@@ -5,6 +5,10 @@ import "./ProfileAndHamburguerComponentStyle.css";
 import hamburguer from "./hamburguer.png";
 import { Link } from "react-router-dom";
 
+const name = localStorage.getItem('name')
+
+console.log(name)
+
 const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
   return (
     <div className={"general"}>
@@ -19,7 +23,14 @@ const ProfileAndHamburguerComponent = ({ show, changeShow }) => {
                 data-dismiss={show ? "modal" : ""}
                 alt=""
               ></img>
-            
+
+            { name ? 
+
+              <h2 style={{color: "white",
+            margin: "10px"}}><i>Hola, {name}!</i></h2> : <h2></h2>
+
+          }
+
             {show && (
               <div className={"flexStart"}>
                 <div className={"modal2"}>

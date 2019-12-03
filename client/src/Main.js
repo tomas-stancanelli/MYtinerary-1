@@ -20,7 +20,7 @@ class Main extends React.Component {
 
     return (
       <div>
-         <Route component={ProfileAndHamburguerContainer} /> 
+        <Route component={ProfileAndHamburguerContainer} />
         <div className="App">
           <Route component={NavbarComponent} />
           <Switch>
@@ -29,9 +29,9 @@ class Main extends React.Component {
             <Route path='/create-account' component={CreateAccountContainer} />
             <Route path='/cities/:id' component={CityContainer} />
             <Route path='/search' component={SearchCitiesContainer} />
-            <Route path='/add-city' component={AddCityComponent}/>
-            <Route exact path='/itineraries/add' component={AddItinerary}/>
-            <Route exact path='/itineraries/:city_name' component={CityItinerariesContainer}/>
+            <Route path='/add-city' component={AddCityComponent} />
+            <Route exact path='/itineraries/add' component={AddItinerary} />
+            <Route exact path='/itineraries/:city_name' component={CityItinerariesContainer} />
           </Switch>
           <Route component={FooterComponent} />
           <Redirect exact from="/" to="/index" />

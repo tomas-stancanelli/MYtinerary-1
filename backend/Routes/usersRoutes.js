@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+ router.get('/:id', async (req, res) => {
     var singleUserFromRoutes = await User.find({ "username": req.params.id }, function (err, singleUser) {
         if (err) return console.error(err);
         console.log("Printing singleUser");
