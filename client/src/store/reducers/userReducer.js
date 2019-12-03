@@ -1,12 +1,20 @@
-// import { LOGGED_USER } from '../constants'
+ import { LOG_IN_USER } from '../constants'
 
-// const initalState = ""
+ const initialState = {
+    username: "",
+    image: "",
+    token: ""
+ }
 
-// export default (state = initialState, action) => {
-//     switch (action.type) {
-//         case LOGGED_USER: {
-//             return Object.assign({}, state, { singleCity: action.city })
-//         }
-//         default: return state
-//     }
-// }
+ export default (state = initialState, action) => {
+    switch (action.type) {
+         case "LOG_IN_USER": {
+             return {...state,
+                token: action.user.data.token,
+                image: action.user.data.image,
+                username: action.user.data.username
+            }
+         }
+         default: return state
+     }
+ }

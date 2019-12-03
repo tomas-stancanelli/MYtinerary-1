@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProfileAndHamburguerComponent from '../../components/ProfileAndHamburguerComponent/ProfileAndHamburguerComponent';
+import { connect } from "react-redux";
 
 class ProfileAndHamburguerContainer extends Component {
     constructor(props) {
@@ -21,6 +22,7 @@ class ProfileAndHamburguerContainer extends Component {
                 <ProfileAndHamburguerComponent
                 show={this.state.show}
                 changeShow={this.changeShow}
+                username={this.props.user}
                 />
                 
             </div>
@@ -28,4 +30,11 @@ class ProfileAndHamburguerContainer extends Component {
     }
 }
 
-export default ProfileAndHamburguerContainer;
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer.username
+    };
+};
+
+
+export default connect (mapStateToProps)(ProfileAndHamburguerContainer);

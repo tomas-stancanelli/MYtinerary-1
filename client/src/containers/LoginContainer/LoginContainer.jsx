@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import LoginComponent from "../../components/LoginComponent/LoginComponent";
-import axios from "axios"
+import { connect } from "react-redux";
+import { logUser } from "../../store/action-creators/userActions";
 
-export default class LoginContainer extends Component {
+class LoginContainer extends Component {
 
     constructor(props) {
 
@@ -36,55 +37,68 @@ export default class LoginContainer extends Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault()
-        axios.post('/api/users/login/', this.state)
-            .then(res => {
-                if (res.data === 'x') {
-                    alert("ERROR: your data appear to be wrong, enter your email and password again");
+
+        if(e) {
+            e.preventDefault()
+        }
+
+        this.props.logUserNow(this.state)
+            .then((data) => {
+
+                if (data === false) {
+
+                    alert("You are successfully logged!");
+                    this.props.history.push("/index");
+
                 } else {
-                
-                    alert("You have been successfully logged in!");
-                    console.log("LOGIN CONTAINER", this.state)
-                    localStorage.setItem('name', this.state.username);
-                    console.log("LOGIN CONTAINER", localStorage.getItem('name'))
-                    // user = axios.get()
+
+                    alert("Incorrect username or password")
                 }
             })
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
     }
 
-    responseGoogle = (response) => {
-        
-        this.setState({
+    responseGoogle = async (response) => {
+       
+        await this.setState({
             username: response.profileObj.name,
-            image: response.profileObj.imageUrl, 
+            image: response.profileObj.imageUrl,
             email: response.profileObj.email,
             firstname: response.profileObj.givenName,
             lastname: response.profileObj.familyName,
             isGoogle: true
         })
 
-        if(!response.error) {  
-            alert("Log in successful!")
-        }
+        this.handleSubmit()
 
-        axios.post('/api/users/adduser/', this.state)
-
-//        localStorage.setItem('name', response.profileObj.givenName);
-    
     }
-    
 
     render() {
+
         return (
             <div>
                 <LoginComponent
                     onChange={this.handleChange}
                     onSubmit={this.handleSubmit}
                     responseGoogle={this.responseGoogle}
-                    />
+                />
 
             </div>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        user: state.userReducer
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logUserNow: user =>  
+           dispatch(logUser(user))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
