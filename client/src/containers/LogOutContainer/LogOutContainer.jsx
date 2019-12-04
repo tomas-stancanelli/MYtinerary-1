@@ -8,6 +8,7 @@ class LogOutContainer extends Component {
 
         this.props.logOutUserNow();
         this.props.history.push("/index");
+
     }
 
 
