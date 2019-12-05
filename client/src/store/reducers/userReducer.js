@@ -8,10 +8,7 @@
 
  export default (state = initialState, action) => {
   
-    console.log("ACTION", action.type)
-
     switch (action.type) {
-
   
         case LOG_IN_USER: {
 

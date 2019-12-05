@@ -36,7 +36,6 @@ router.get('/:id', async (req, res) => {
 
 router.post('/adduser', async function (req, res) {
 
-
     await User.find({ "email": req.body.email }, async function (err, userFound) {
 
         if (userFound.length != 0 && req.body.isGoogle === false) {

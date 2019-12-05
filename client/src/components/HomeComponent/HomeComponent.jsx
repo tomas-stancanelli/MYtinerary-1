@@ -283,7 +283,9 @@ const HomeComponent = ({ cities, nums }) => {
     );
 
   } else {
+
     return (<div></div>);
+
   }
 
 };

@@ -9,7 +9,7 @@ import LoginContainer from './containers/LoginContainer/LoginContainer'
 import CityContainer from './containers/CityContainer/CityContainer';
 import SearchCitiesContainer from './containers/SearchCitiesContainer/SearchCitiesContainer';
 import AddCityComponent from './components/AddCityComponent/AddCityComponent'
-import CityItinerariesContainer from './containers/CityItinerariesContainer/CityItinerariesContainer';
+import CityItinerariesComponent from './components/CityItinerariesComponent/CityItinerariesComponent';
 import AddItinerary from './components/AddItineraryComponent/AddItinerary';
 import CreateAccountContainer from './containers/CreateAccountContainer/CreateAccountContainer';
 import LogOutContainer from './containers/LogOutContainer/LogOutContainer';
@@ -34,7 +34,7 @@ class Main extends React.Component {
             <Route path='/search' component={SearchCitiesContainer} />
             <Route path='/add-city' component={AddCityComponent} />
             <Route exact path='/itineraries/add' component={AddItinerary} />
-            <Route exact path='/itineraries/:city_name' component={CityItinerariesContainer} />
+            <Route exact path='/itineraries/:city_name' component={CityItinerariesComponent} />
           </Switch>
           <Route component={FooterComponent} />
           <Redirect exact from="/" to="/index" />

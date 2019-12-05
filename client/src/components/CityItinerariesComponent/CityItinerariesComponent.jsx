@@ -1,216 +1,319 @@
-import React from "react";
 import gif from "../../assets/loading.gif";
 import "./CityItinerariesComponentStyles.css";
 import { Link } from "react-router-dom";
 import backgroundPrev from "./CityItinerariesComponentImages/pngguru.com.png";
 import backgroundNext from "./CityItinerariesComponentImages/pngguru2.com.png";
+import Axios from 'axios';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-const CityItinerariesComponent = ({ itineraries, cityData }) => {
-  return (
-    <div className={"container2"}>
-      {cityData && itineraries ? (
-        <div className={"container2"}>
-          <div className={"col-md-12 col-sm-12"}>
-            <img src={cityData.singleCityFromRoutes[0].image} alt="" />
-            <span className={"inside"}>
-              {cityData.singleCityFromRoutes[0].name.toUpperCase()}
-            </span>
-          </div>
-          {itineraries.itinerariesForACity &&
-          cityData.singleCityFromRoutes &&
-          itineraries.itinerariesForACity.itinerariesForACity
-            .itinerariesForACity.length !== 0 ? (
-            <div className={"margTop"}>
-              <h2>
-                Available MYtineraries
-                <br />
-              </h2>
-              <div className={"div col-lg-12 col-md-12 col-sm-12"}>
-                {console.log("itineraries", itineraries)}
-                {itineraries.itinerariesForACity.itinerariesForACity.itinerariesForACity.map(
-                  (item, i) => (
-                    <div key={i}>
-                      <div>
-                        <div className="container margTop">
-                          <div className="row">
-                            <div
-                              className={
-                                "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
-                              }
-                            >
-                              <div className={"container2 flexContCol"}>
-                                <img
-                                  className={"profile"}
-                                  src={item.userPhoto}
-                                  alt=""
-                                />
-                                <div>{item.username}</div>
-                              </div>
-                            </div>
+class CityItinerariesComponent extends Component {
 
-                            <div
-                              className={
-                                "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
-                              }
-                            >
-                              <div>{item.title}</div>
+  constructor(props) {
 
-                              <div>
-                                <div className={"flexContProp"}>
-                                  <div className={"align"}>Likes:&nbsp;</div>
-                                  <div>{item.rating}</div>
-                                </div>
-                              </div>
+    super(props);
 
-                              <div>
-                                <div className={"flexContProp"}>
-                                  <div className={"align"}>Duration:&nbsp;</div>
-                                  <div>{item.duration}hs.</div>
-                                </div>
-                              </div>
+    this.state = {
+      itineraries: [],
+      cityData: [],
+      newComment: '',
+      itineraryCommented: ''
+    }
 
-                              <div>
-                                <div className={"flexContProp"}>
-                                  <div className={"align"}>Price:&nbsp;</div>
-                                  <div>${item.price}</div>
-                                </div>
-                              </div>
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.deleteComment = this.deleteComment.bind(this);
 
-                              <div className={"blue"}>
-                                {/* {item.hashtags} */}
-                                {item.hashtags.map((hashtags, i) => (
-                                  <div key={i} className={"hashLinks"}>
-                                    <a href="-">{hashtags}&nbsp;</a>
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+  }
 
-                        <div className={"container2 flexContLeft"}></div>
-                      </div>
+  async componentDidMount() {
 
-                      {/* ACÁ EMPIEZA EL BOTÓN DE VER MÁS PARA VER LAS ACTIVITIES DE CADA ITINERARIO */}
-                                  <div>
-                      <button
-                        className="navbar-toggler btn fullToggle"
-                        type="button"
-                        data-toggle="collapse"
-                        data-target={"#navbarSupportedContent" + i}
-                        aria-controls={"navbarSupportedContent" + i}
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                      >
-                        View All Activities
-                        <br />
-                      </button>
+    var name = this.props.match.params.city_name
 
-                      <div
-                        className="collapse navbar-collapse"
-                        id={"navbarSupportedContent" + i}
-                      >
-                        <div
-                          id={"carouselExampleControls" + i}
-                          className="carousel slide"
-                          data-ride="carousel"
-                        >
-                          <div className="carousel-inner">
-                            {item.activities.map((item, i) =>
-                              i === 0 ? (
-                                <div key={i} className="carousel-item active">
-                                  <div className={"flexContCar"}>
-                                    <div className={"bold"}>{item.Name}</div>
-                                    <div className={"fullToggle2"}>
-                                      {item.Comments}
-                                    </div>
-                                  </div>
-                                </div>
-                              ) : (
-                                <div key={i} className="carousel-item">
-                                  <div className={"flexContCar"}>
-                                    <div className={"bold"}>{item.Name}</div>
-                                    <div className={"fullToggle2"}>
-                                      {item.Comments}
-                                    </div>
-                                  </div>
-                                </div>
-                              )
-                            )}
-                          </div>
-                          <a
-                            className="carousel-control-prev"
-                            href={"#carouselExampleControls" + i}
-                            role="button"
-                            data-slide="prev"
-                          >
-                            <span
-                              className="carousel-control-prev-icon"
-                              aria-hidden="true"
-                              style={{
-                                height: "30px",
-                                width: "30px",
-                                backgroundImage: `url(${backgroundPrev})`,
-                                marginLeft: "70px"
-                              }}
-                            ></span>
-                            <span className="sr-only">Previous</span>
-                          </a>
-                          <a
-                            className="carousel-control-next"
-                            href={"#carouselExampleControls" + i}
-                            role="button"
-                            data-slide="next"
-                          >
-                            <span
-                              className="carousel-control-next-icon"
-                              aria-hidden="true"
-                              style={{
-                                height: "30px",
-                                width: "30px",
-                                backgroundImage: `url(${backgroundNext})`,
-                                marginRight: "70px"
-                              }}
-                            ></span>
-                            <span className="sr-only">Next</span>
-                          </a>
-                        </div>
-                        <br />
-                        <div className={"comments"}>
-                          <label>
-                            <span className={"labLeft"}>Comments</span>
-                            <input
-                              className={"inp"}
-                              type="text"
-                              placeholder="Your Comment..."
-                            />
-                          </label>
-                        </div>
-                        </div>
-                      </div>
-                      {/* en el div de arriba termina el componente */}
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-          ) : (
-            <h1>
-              There are no itineraries available for&nbsp;
-              {cityData.singleCityFromRoutes[0].name}. Would you like to&nbsp;
-              <span className={"blue"}>
-                <Link to={"/itineraries/add"}>add one?</Link>
+    await Axios.get(`/api/itineraries/${name}`)
+      .then(response => this.setState({ itineraries: response.data.itinerariesForACity, cityData: this.props.city }))
+      .catch(error => console.log(error))
+
+  }
+
+  handleChange(event) {
+
+    this.setState({ itineraryCommented: event.target.id, newComment: event.target.value })
+
+  }
+
+  async handleSubmit(event) {
+
+    event.preventDefault();
+
+    await Axios.put(`/api/itineraries/${this.props.city_name}`, this.state)
+      .then(response => this.setState({ itineraries: response.data.itinerariesForACity }))
+      .catch(error => console.log(error))
+
+    document.getElementById(this.state.itineraryCommented).value = ''
+
+  }
+
+  async deleteComment(event) {
+
+    var keyComment = event.target.value[0]
+    var newValue = event.target.value.slice(1, event.target.value.length).split("/")
+    var commentTitle = newValue[0]
+    var oldComment = newValue[1]
+
+    Axios.post(`/api/itineraries/del/${this.props.city_name}`, {
+      key: keyComment,
+      comment: oldComment,
+      title: commentTitle
+    })
+      .then(response => this.setState({ itineraries: response.data.itinerariesForACity }))
+      .catch(error => console.log(error))
+
+  }
+
+  render() {
+
+    var cityData = this.state.cityData
+    var itineraries = this.state.itineraries
+
+    if (this.state.cityData.length === 0) { return null }
+
+    return (
+      <div className={"container2"}>
+        {cityData && itineraries ? (
+          <div className={"container2"}>
+            <div className={"col-md-12 col-sm-12"}>
+              <img src={cityData.image} alt="" />
+              <span className={"inside"}>
+                {cityData.name.toUpperCase()}
               </span>
-            </h1>
+            </div>
+            {itineraries &&
+              cityData &&
+              itineraries.length !== 0 ? (
+                <div className={"margTop"}>
+                  <h2>
+                    Available MYtineraries
+                  <br />
+                  </h2>
+                  <div className={"div col-lg-12 col-md-12 col-sm-12"}>
+                    {itineraries.map(
+                      (item, i) => (
+                        <div key={i}>
+                          <div>
+                            <div className="container margTop">
+                              <div className="row">
+                                <div
+                                  className={
+                                    "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
+                                  }
+                                >
+                                  <div className={"container2 flexContCol"}>
+                                    <img
+                                      className={"profile"}
+                                      src={item.userPhoto}
+                                      alt=""
+                                    />
+                                    <div>{item.username}</div>
+                                  </div>
+                                </div>
+
+                                <div
+                                  className={
+                                    "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
+                                  }
+                                >
+                                  <div>{item.title}</div>
+
+                                  <div>
+                                    <div className={"flexContProp"}>
+                                      <div className={"align"}>Likes:&nbsp;</div>
+                                      <div>{item.rating}</div>
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <div className={"flexContProp"}>
+                                      <div className={"align"}>Duration:&nbsp;</div>
+                                      <div>{item.duration}hs.</div>
+                                    </div>
+                                  </div>
+
+                                  <div>
+                                    <div className={"flexContProp"}>
+                                      <div className={"align"}>Price:&nbsp;</div>
+                                      <div>${item.price}</div>
+                                    </div>
+                                  </div>
+
+                                  <div className={"blue"}>
+
+                                    {item.hashtags.map((hashtags, i) => (
+                                      <div key={i} className={"hashLinks"}>
+                                        <a href="-">{hashtags}&nbsp;</a>
+                                      </div>
+                                    ))}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className={"container2 flexContLeft"}></div>
+                          </div>
+
+                          {/* ACÁ EMPIEZA EL BOTÓN DE VER MÁS PARA VER LAS ACTIVITIES DE CADA ITINERARIO */}
+                          <div>
+                            <button
+                              className="navbar-toggler btn fullToggle"
+                              type="button"
+                              data-toggle="collapse"
+                              data-target={"#navbarSupportedContent" + i}
+                              aria-controls={"navbarSupportedContent" + i}
+                              aria-expanded="false"
+                              aria-label="Toggle navigation"
+                            >
+                              View All Activities
+                          <br />
+                            </button>
+
+                            <div
+                              className="collapse navbar-collapse"
+                              id={"navbarSupportedContent" + i}
+                            >
+                              <div
+                                id={"carouselExampleControls" + i}
+                                className="carousel slide"
+                                data-ride="carousel"
+                              >
+                                <div className="carousel-inner">
+                                  {item.activities.map((item, i) =>
+                                    i === 0 ? (
+                                      <div key={i} className="carousel-item active">
+                                        <div className={"flexContCar"}>
+                                          <div className={"bold"}>{item.Name}</div>
+                                          <div className={"fullToggle2"}>
+                                            {item.Comments}
+                                          </div>
+                                        </div>
+                                      </div>
+                                    ) : (
+                                        <div key={i} className="carousel-item">
+                                          <div className={"flexContCar"}>
+                                            <div className={"bold"}>{item.Name}</div>
+                                            <div className={"fullToggle2"}>
+                                              {item.Comments}
+                                            </div>
+                                          </div>
+                                        </div>
+                                      )
+                                  )}
+                                </div>
+                                <a
+                                  className="carousel-control-prev"
+                                  href={"#carouselExampleControls" + i}
+                                  role="button"
+                                  data-slide="prev"
+                                >
+                                  <span
+                                    className="carousel-control-prev-icon"
+                                    aria-hidden="true"
+                                    style={{
+                                      height: "30px",
+                                      width: "30px",
+                                      backgroundImage: `url(${backgroundPrev})`,
+                                      marginLeft: "70px"
+                                    }}
+                                  ></span>
+                                  <span className="sr-only">Previous</span>
+                                </a>
+                                <a
+                                  className="carousel-control-next"
+                                  href={"#carouselExampleControls" + i}
+                                  role="button"
+                                  data-slide="next"
+                                >
+                                  <span
+                                    className="carousel-control-next-icon"
+                                    aria-hidden="true"
+                                    style={{
+                                      height: "30px",
+                                      width: "30px",
+                                      backgroundImage: `url(${backgroundNext})`,
+                                      marginRight: "70px"
+                                    }}
+                                  ></span>
+                                  <span className="sr-only">Next</span>
+                                </a>
+                              </div>
+                              <br />
+                            </div>
+                          </div>
+                          <div className={"comments"}>
+                            <span className={"labLeft"}><b><i>Comments</i></b></span>
+
+
+                              <ul style={{ listStyle: "none" }}>  {item.comments.map((comment, i) => {
+                                return (
+                                  <div key={i}>
+                                  
+                                    <li>{comment}</li>
+                                    <button onClick={this.deleteComment} value={i+item.title+"/"+comment}>Delete</button>
+                                  </div>)
+                              })}
+                              </ul>
+                            
+
+                            <form onSubmit={this.handleSubmit}>
+                              <label>
+                                <input
+                                  id={item.title}
+                                  onChange={this.handleChange}
+                                  className={"inp"}
+                                  type="text"
+                                  placeholder="Your Comment..."
+                                />
+                              </label>
+                              <input type="submit" value="Submit" />
+                            </form>
+                          </div>
+
+                          {/* en el div de arriba termina el componente */}
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <h1>
+                  There are no itineraries available for&nbsp;
+                {cityData.singleCityFromRoutes[0].name}. Would you like to&nbsp;
+                <span className={"blue"}>
+                    <Link to={"/itineraries/add"}>add one?</Link>
+                  </span>
+                </h1>
+              )}
+          </div>
+        ) : (
+            <div className="flexCont">
+              <img className="loading4" src={gif} alt="" />
+            </div>
           )}
-        </div>
-      ) : (
-        <div className="flexCont">
-          <img className="loading4" src={gif} alt="" />
-        </div>
-      )}
-    </div>
-  );
+      </div>
+    );
+  }
 };
 
-export default CityItinerariesComponent;
+const mapStateToProps = (state, ownProps) => {
+  if (state.singleCityReducer) {
+    return {
+      city_name: ownProps.match.params.city_name,
+      city: state.singleCityReducer.singleCity.singleCityFromRoutes[0],
+    };
+  }
+
+};
+
+
+export default connect(
+  mapStateToProps
+)(CityItinerariesComponent);
