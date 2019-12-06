@@ -15,6 +15,10 @@ class FavoriteItinerariesComponent extends Component {
 
     toggleImage = () => {
         
+        if(!this.props.user.username){
+            return
+        }
+
         if (this.state.open === false) {
             this.props.onClick(this.props.itinerary, true)
             this.setState ({ open: true })
