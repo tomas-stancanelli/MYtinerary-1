@@ -1,11 +1,12 @@
 import gif from "../../assets/loading.gif";
 import "./CityItinerariesComponentStyles.css";
-import { Link } from "react-router-dom";
 import backgroundPrev from "./CityItinerariesComponentImages/pngguru.com.png";
 import backgroundNext from "./CityItinerariesComponentImages/pngguru2.com.png";
 import Axios from 'axios';
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import FavoriteItinerariesComponent from "../FavoriteItinerariesComponent/FavoriteItinerariesComponent";
+import { Button } from "react-bootstrap"
 
 class CityItinerariesComponent extends Component {
 
@@ -23,7 +24,7 @@ class CityItinerariesComponent extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteComment = this.deleteComment.bind(this);
-
+    this.changeFavourites = this.changeFavourites.bind(this);
   }
 
   async componentDidMount() {
@@ -71,6 +72,28 @@ class CityItinerariesComponent extends Component {
 
   }
 
+  async changeFavourites(itinerary, fav) {
+
+    if (fav === true) {
+
+      await Axios.put(`/api/itineraries/favon/${this.props.city_name}`, {
+        title: itinerary.title,
+        user: this.props.user.username
+      })
+
+    }
+
+    if (fav === false) {
+
+      await Axios.put(`/api/itineraries/favoff/${this.props.city_name}`, {
+        title: itinerary.title,
+        user: this.props.user.username
+      })
+
+    }
+
+  }
+
   render() {
 
     var cityData = this.state.cityData
@@ -108,6 +131,10 @@ class CityItinerariesComponent extends Component {
                                     "col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6"
                                   }
                                 >
+
+                                  {< FavoriteItinerariesComponent
+                                    itinerary={item} user={this.props.user} onClick={this.changeFavourites} />}
+
                                   <div className={"container2 flexContCol"}>
                                     <img
                                       className={"profile"}
@@ -252,20 +279,22 @@ class CityItinerariesComponent extends Component {
                             <span className={"labLeft"}><b><i>Comments</i></b></span>
 
 
-                              <ul style={{ listStyle: "none" }}>  {item.comments.map((comment, i) => {
-                                return (
-                                  <div key={i}>
-                                  
-                                    <li>{comment}</li>
-                                    <button onClick={this.deleteComment} value={i+item.title+"/"+comment}>Delete</button>
-                                  </div>)
-                              })}
-                              </ul>
-                            
+                            <ul style={{ listStyle: "none" }}>  {item.comments.map((comment, i) => {
+                              return (
+                                <div key={i}>
+
+                                  <li>{comment}</li>
+                                  <Button variant="danger" onClick={this.deleteComment} value={i + item.title + "/" + comment}>Delete</Button>
+
+                                </div>)
+                            })}
+                            </ul>
+
 
                             <form onSubmit={this.handleSubmit}>
-                              <label>
+                              <label className="align-content-lg-end">
                                 <input
+
                                   id={item.title}
                                   onChange={this.handleChange}
                                   className={"inp"}
@@ -273,9 +302,8 @@ class CityItinerariesComponent extends Component {
                                   placeholder="Your Comment..."
                                 />
                               </label>
-                              <input type="submit" value="Submit" />
-                            </form>
-                          </div>
+                              <Button size="sm" variant="outline-success" type="submit" value="Submit">Send comment</Button>
+                            </form>                          </div>
 
                           {/* en el div de arriba termina el componente */}
                         </div>
@@ -284,12 +312,12 @@ class CityItinerariesComponent extends Component {
                   </div>
                 </div>
               ) : (
-                <h1>
-                  There are no itineraries available for&nbsp;
+                <h1>There are no itineraries available
+                  {/* There are no itineraries available for&nbsp;
                 {cityData.singleCityFromRoutes[0].name}. Would you like to&nbsp;
                 <span className={"blue"}>
                     <Link to={"/itineraries/add"}>add one?</Link>
-                  </span>
+                  </span> */}
                 </h1>
               )}
           </div>
@@ -306,6 +334,7 @@ class CityItinerariesComponent extends Component {
 const mapStateToProps = (state, ownProps) => {
   if (state.singleCityReducer) {
     return {
+      user: state.userReducer,
       city_name: ownProps.match.params.city_name,
       city: state.singleCityReducer.singleCity.singleCityFromRoutes[0],
     };

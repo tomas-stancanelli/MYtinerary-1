@@ -13,7 +13,8 @@ var itinerarySchema = new Schema({
     price: String,
     hashtags: Array,
     activities: Array,
-    comments: Array
+    comments: Array,
+    favouriteUsers: Array
 });
 
 var Itinerary = mongoose.model('Itinerary', itinerarySchema);

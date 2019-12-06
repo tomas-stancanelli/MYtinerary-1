@@ -3,18 +3,23 @@ const router = express.Router();
 const Itinerary = require('../Schemas/Itinerary.js')
 
 router.get('/', async (req, res) => {
+
     var itinerariesFromRoutes = await Itinerary.find(function (err, allItineraries) {
+
         if (err)
             return console.error(err);
     })
+
     res.json({ itinerariesFromRoutes })
 });
 
 router.get('/:city_name', async (req, res) => {
+
     var itinerariesForACity = await Itinerary.find({ "city": ((req.params.city_name.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(" "))) }, function (err, itineraries) {
         if (err)
             return console.error(err);
     })
+
     res.json({ itinerariesForACity })
 })
 
@@ -44,7 +49,6 @@ router.put('/:city_name', async (req, res) => {
 
 router.post('/del/:city_name', async (req, res) => {
 
-
     var itinerariesForACity = await Itinerary.find({ "city": ((req.params.city_name.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(" "))) },
 
         function (err, it) {
@@ -62,6 +66,60 @@ router.post('/del/:city_name', async (req, res) => {
     }
 
     itinerariesForACity[key].comments.splice(req.body.key, 1)
+
+    await itinerariesForACity[key].save();
+
+    res.json({ itinerariesForACity })
+
+})
+
+router.put('/favon/:city_name', async (req, res) => {
+
+    var itinerariesForACity = await Itinerary.find({ "city": ((req.params.city_name.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(" "))) },
+
+        function (err, it) {
+            if (err)
+                return console.error(err);
+        })
+
+    var key;
+
+    for (var i = 0; itinerariesForACity.length; i++) {
+        if (itinerariesForACity[i].title === req.body.title) {
+            key = i;
+            break;
+        }
+    }
+
+    itinerariesForACity[key].favouriteUsers.push(req.body.user)
+
+    await itinerariesForACity[key].save();
+
+    res.json({ itinerariesForACity })
+
+})
+
+router.put('/favoff/:city_name', async (req, res) => {
+
+    var itinerariesForACity = await Itinerary.find({ "city": ((req.params.city_name.split('_').map(word => word[0].toUpperCase() + word.slice(1)).join(" "))) },
+
+        function (err, it) {
+            if (err)
+                return console.error(err);
+        })
+
+    var key;
+
+    for (var i = 0; itinerariesForACity.length; i++) {
+        if (itinerariesForACity[i].title === req.body.title) {
+            key = i;
+            break;
+        }
+    }
+
+    var keyB = itinerariesForACity[key].favouriteUsers.indexOf(req.body.user)
+
+    itinerariesForACity[key].favouriteUsers.splice(keyB, 1)
 
     await itinerariesForACity[key].save();
 
