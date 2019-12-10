@@ -1,5 +1,6 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, Button, View, Image } from 'react-native'
+import { TouchableOpacity, Text, StyleSheet, Button, View, Image } from 'react-native';
+import CityCarousel from './CityCarousel.js';
 
 
 class HomeScreen extends React.Component {
@@ -12,8 +13,9 @@ class HomeScreen extends React.Component {
           <View style={styles.container}>
           <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')}/>
           <TouchableOpacity onPress={() => navigate('Cities')}>
-          <Image source={require('../assets/img/circled-right-2.png')}/>
-            </TouchableOpacity>
+            <Image source={require('../assets/img/circled-right-2.png')}/>
+          </TouchableOpacity>
+          <CityCarousel/>
           </View>
         )
     }

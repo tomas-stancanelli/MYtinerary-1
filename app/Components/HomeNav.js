@@ -6,7 +6,7 @@ import CitiesScreen from './CitiesScreen.js';
 
 const AppNavigator = createStackNavigator({
     Home: { screen: HomeScreen },
-    Cities: { screen: CitiesScreen },
+    Cities: { screen: CitiesScreen }
 });
 
 export default AppNavigator;
