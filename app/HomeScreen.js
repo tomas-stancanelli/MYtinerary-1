@@ -4,7 +4,7 @@ import { Text, Button } from 'react-native'
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Welcome',
+        title: ' ',
     };
     render() {
         const { navigate } = this.props.navigation;
