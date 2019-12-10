@@ -1,22 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import CityCarousel from './CityCarousel'
+import { createAppContainer } from 'react-navigation';
+import AppNavigator from "./Components/HomeNav"
 
-export default class App extends React.Component {
 
-  render = () => {
-    return (
-        <CityCarousel/>
-    );
+const AppContainer = createAppContainer(AppNavigator);
+
+export default class App extends React.Component{
+  render (){
+    return <AppContainer />
   }
 }
-
+ 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: 'center',
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: '100%',
-  },
+    backgroundColor: 'black',
+    alignItems: 'center',
+    justifyContent: 'center',
+      },
+      text: {
+        color: "red",
+      }
 });
