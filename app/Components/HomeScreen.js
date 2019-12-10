@@ -13,6 +13,9 @@ class HomeScreen extends React.Component {
              <Button 
           title="Go to Login"
           onPress={() => navigate('Login')}/>
+           <Button 
+          title="Go to Create Account"
+          onPress={() => navigate('CreateAccount')}/>
           <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')}/>
           <TouchableOpacity onPress={() => navigate('Cities')}>
           <Image source={require('../assets/img/circled-right-2.png')}/>
