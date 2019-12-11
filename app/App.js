@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
-import AppNavigator from "./HomeNav"
+import AppNavigator from "./components/HomeNav"
 
 
 const AppContainer = createAppContainer(AppNavigator);
@@ -10,7 +10,6 @@ export default class App extends React.Component{
   render (){
     return <AppContainer />
   }
-
 }
  
 const styles = StyleSheet.create({

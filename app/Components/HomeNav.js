@@ -6,6 +6,7 @@ import CitiesScreen from './CitiesScreen';
 import { Image, View } from 'react-native';
 import Hamburguer from "./Hamburguer";
 import Profile from "./Profile"
+
 //<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
 const AppNavigator = createStackNavigator({

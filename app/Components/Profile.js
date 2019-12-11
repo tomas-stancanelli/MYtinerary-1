@@ -25,7 +25,7 @@ class Hamburguer extends React.PureComponent {
             ref={this.setMenuRef}
             button={    <TouchableOpacity
                             onPress={this.showMenu}>
-                            <Image source={require('./assets/2388994522.png')} style={{width:40, height:40 }} />
+                            <Image source={require('../assets/2388994522.png')} style={{width:40, height:40 }} />
                         </TouchableOpacity>
             }
         >
