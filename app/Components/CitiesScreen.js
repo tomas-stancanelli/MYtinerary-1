@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, Button } from 'react-native'
+import { Text, Button,Image ,StyleSheet} from 'react-native'
 
 class CitiesScreen extends React.Component {
     static navigationOptions = {
-        title: 'Cities',
+        title: ' ',
+        
     };
     render() {
         const { navigate } = this.props.navigation;
@@ -16,3 +17,15 @@ class CitiesScreen extends React.Component {
 }
 
 export default CitiesScreen;
+
+/*const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: 'black',
+      alignItems: 'center',
+      justifyContent: 'center',
+        },
+        text: {
+          color: "red",
+        }
+  });*/
