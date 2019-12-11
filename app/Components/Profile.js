@@ -1,9 +1,8 @@
 import React from 'react';
-
-import { View, Image ,TouchableOpacity} from 'react-native';
+import { View, Image, TouchableOpacity } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 
-class Hamburguer extends React.PureComponent {
+class Profile extends React.Component {
   _menu = null;
 
   setMenuRef = ref => {
@@ -19,22 +18,25 @@ class Hamburguer extends React.PureComponent {
   };
 
   render() {
+    console.log(this.props)
+    const { navigate } = this.props.navigation;
+    console.log("props de profile:", this.props.navigation);
     return (
       <View style={{ flex: 1, alignItems: 'flex-start' }}>
         <Menu
-            ref={this.setMenuRef}
-            button={    <TouchableOpacity
-                            onPress={this.showMenu}>
-                            <Image source={require('../assets/2388994522.png')} style={{width:40, height:40 }} />
-                        </TouchableOpacity>
-            }
+          ref={this.setMenuRef}
+          button={<TouchableOpacity
+            onPress={this.showMenu}>
+              <Image source={require('../assets/2388994522.png')} style={{ width: 40, height: 40 }} />
+          </TouchableOpacity>
+          }
         >
-          <MenuItem onPress={this.hideMenu}>Login</MenuItem>
-          <MenuItem onPress={this.hideMenu}>Create Account</MenuItem>
+          <MenuItem onPress={() => navigate('Login')}>Login</MenuItem>
+          <MenuItem onPress={() => navigate('CreateAccount')}>Create Account</MenuItem>
         </Menu>
       </View>
     );
   }
 }
 
-export default Hamburguer;
+export default Profile;

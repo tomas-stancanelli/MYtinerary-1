@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, View, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import { Text, Button, View, StyleSheet, Image, ScrollView,TouchableOpacity} from 'react-native';
 import CityCarousel from './CityCarousel';
 
 
@@ -9,7 +9,9 @@ class HomeScreen extends React.Component {
     };
     render() {
         const { navigate } = this.props.navigation;
+        console.log("home:", this.props)
         return (
+            <ScrollView>
             <View style={styles.container}>
                 <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
                 <TouchableOpacity onPress={() => navigate('Cities')}>
@@ -17,6 +19,7 @@ class HomeScreen extends React.Component {
                 </TouchableOpacity>
                 <CityCarousel />
             </View>
+            </ScrollView>
         )
     }
 }
@@ -29,7 +32,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imgLogo: {
-        marginTop: 80
+        marginTop: 30
     }
 });
 
