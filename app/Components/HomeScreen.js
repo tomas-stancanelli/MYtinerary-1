@@ -5,7 +5,7 @@ import CityCarousel from './CityCarousel.js';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Puto el que lee',
+        title: '#teamwork',
     };
     render() {
         const { navigate } = this.props.navigation;
@@ -30,5 +30,4 @@ const styles = StyleSheet.create({
     imgLogo: {
        marginTop: 80
       }});
-
 export default HomeScreen;
