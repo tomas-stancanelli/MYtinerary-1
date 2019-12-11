@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, TextInput, Text, View, TouchableOpacity, Image, Button } from 'react-native'
+import { StyleSheet, TextInput, Text, View, KeyboardAvoidingView, TouchableOpacity, Image, Button } from 'react-native'
 // import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 class LoginScreen extends React.Component {
@@ -26,7 +26,7 @@ class LoginScreen extends React.Component {
                     secureTextEntry
                     style={styles.input} />
                 <TouchableOpacity style={styles.button}>
-                    <Text>LOGIN</Text>
+                    <Text style={styles.colortextbutton}>LOGIN</Text>
 
                 </TouchableOpacity>
             </View>
@@ -55,13 +55,18 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     button: {
-        // backgroundColor: '#00bfff',
-        height: 40,
-        // width: 60,
+        backgroundColor: '#3399FF',
+        // borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        alignItems: 'center',
+        height: 20,
+        width: 60,
         justifyContent: 'center',
-        alignSelf: 'center',
-
-        marginBottom: 20
+        alignSelf: 'center'
+        // marginBottom: 10
+    },
+    colortextbutton: {
+        color: 'white'
     },
     imgLogo: {
         justifyContent: 'center',

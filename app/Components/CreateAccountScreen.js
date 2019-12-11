@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, TextInput, Text, View, TouchableOpacity, Image, Button } from 'react-native'
+import { StyleSheet, TextInput, Text, View, TouchableOpacity, Image, ScrollView, Button } from 'react-native'
 // import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 class CreateAccountScreen extends React.Component {
@@ -9,47 +9,48 @@ class CreateAccountScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-
-            <View style={styles.container}>
-                <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
-                {/* <Button
+            <ScrollView>
+                <View style={styles.container}>
+                    <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
+                    {/* <Button
                     title="Go Home"
                     onPress={() => navigate('Home')} /> */}
 
-                <TextInput
-                    placeholder="Username"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
-                <TextInput
-                    placeholder="password"
-                    placeholderTextColor="gray"
-                    secureTextEntry
-                    style={styles.input} />
                     <TextInput
-                    placeholder="Email"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
+                        placeholder="Username"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
                     <TextInput
-                    placeholder="First Name"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
+                        placeholder="password"
+                        placeholderTextColor="gray"
+                        secureTextEntry
+                        style={styles.input} />
                     <TextInput
-                    placeholder="Last Name"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
+                        placeholder="Email"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
                     <TextInput
-                    placeholder="Country"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
+                        placeholder="First Name"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
                     <TextInput
-                    placeholder="Profile Photo URL"
-                    placeholderTextColor="gray"
-                    style={styles.input} />
-                <TouchableOpacity style={styles.button}>
-                    <Text>Submit</Text>
+                        placeholder="Last Name"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
+                    <TextInput
+                        placeholder="Country"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
+                    <TextInput
+                        placeholder="Profile Photo URL"
+                        placeholderTextColor="gray"
+                        style={styles.input} />
+                    <TouchableOpacity style={styles.button}>
+                        <Text style={styles.colortextbutton}>SUBMIT</Text>
 
-                </TouchableOpacity>
-            </View>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         );
     }
 }
@@ -74,14 +75,28 @@ const styles = StyleSheet.create({
 
         color: 'black'
     },
-    button: {
-        // backgroundColor: '#00bfff',
-        height: 40,
-        // width: 60,
-        justifyContent: 'center',
-        alignSelf: 'center',
+    // button: {
+    //     // backgroundColor: '#00bfff',
+    //     height: 40,
+    //     // width: 60,
+    //     justifyContent: 'center',
+    //     alignSelf: 'center',
 
-        marginBottom: 20
+    //     marginBottom: 20
+    // },
+    button: {
+        backgroundColor: '#3399FF',
+        // borderBottomColor: '#737373',
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        alignItems: 'center',
+        height: 20,
+        width: 60,
+        justifyContent: 'center',
+        alignSelf: 'center'
+        // marginBottom: 10
+    },
+    colortextbutton: {
+        color: 'white'
     },
     imgLogo: {
         justifyContent: 'center',

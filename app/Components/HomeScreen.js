@@ -1,38 +1,41 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, Button, View, Image } from 'react-native'
+import { Text, Button, View, StyleSheet, Image, ScrollView,TouchableOpacity} from 'react-native';
+import CityCarousel from './CityCarousel';
 
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Puto el que lee',
+        title: ' ',
     };
     render() {
         const { navigate } = this.props.navigation;
+        console.log("home:", this.props)
         return (
-          <View style={styles.container}>
-             <Button 
-          title="Go to Login"
-          onPress={() => navigate('Login')}/>
-           <Button 
-          title="Go to Create Account"
-          onPress={() => navigate('CreateAccount')}/>
-          <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')}/>
-          <TouchableOpacity onPress={() => navigate('Cities')}>
-          <Image source={require('../assets/img/circled-right-2.png')}/>
-            </TouchableOpacity>
-          </View>
+            <ScrollView>
+            <View style={styles.container}>
+                <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
+                <TouchableOpacity onPress={() => navigate('Cities')}>
+                    <Image source={require('../assets/img/circled-right-2.png')} />
+                </TouchableOpacity>
+                <CityCarousel />
+            </View>
+            </ScrollView>
         )
     }
 }
+
 const styles = StyleSheet.create({
     container: {
-        width:"100%",
+        width: "100%",
         backgroundColor: '#fff',
         flex: 1,
         alignItems: 'center',
-      },
+    },
     imgLogo: {
-       marginTop: 80
-      }});
+        marginTop: 30
+    }
+});
+
+
 
 export default HomeScreen;
