@@ -9,9 +9,8 @@ class HomeScreen extends React.Component {
     };
     render() {
         const { navigate } = this.props.navigation;
-        console.log("home:", this.props)
         return (
-            <ScrollView>
+            <ScrollView >
             <View style={styles.container}>
                 <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
                 <TouchableOpacity onPress={() => navigate('Cities')}>
@@ -27,13 +26,14 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         width: "100%",
+        height: '100%',
         backgroundColor: '#fff',
         flex: 1,
-        alignItems: 'center',
+        alignItems: 'center'
     },
     imgLogo: {
         marginTop: 30
-    }
+    },
 });
 
 

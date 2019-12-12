@@ -1,53 +1,65 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
-import citiesList from './cities'
+import ImageWithName from './ImageWithName';
+import axios from 'axios';
 
 export default class CityCarousel extends React.Component {
   constructor(props){
     super();
     this.state = {
-      images: {}
+      cities: {}
     }
 
     this.props = props;
   }
 
-  componentDidMount(){
-    this.setState({images: citiesList});
+  async componentDidMount() {
+    try{
+      const data = await axios.get("https://mytinerary-grupo2.herokuapp.com/api/cities");
+      this.setState({ cities: data.data.ciudadesFromRoutes });
+    }catch(e){
+      console.log(e);
+    }
   }
 
   getRandomCities(numOfGroups){
+    var arr = [];
     var temparray = [];
     var i,j;
     var groupLength;
 
-    if(this.state.images.list) {
-      groupLength = Math.floor(this.state.images.list.length / numOfGroups);
-      for (i = 0, j = this.state.images.list.length; i < j; i += groupLength) {
-        temparray.push(this.state.images.list.slice(i,i+groupLength));
-      }    
-    }
+    if(this.state.cities.length > 0) {
+      this.randomNums(12, this.state.cities.length).forEach((i) => {
+        arr.push(this.state.cities[i]);
+      });
 
+      groupLength = Math.floor(arr.length / numOfGroups);
+      for (i = 0, j = arr.length; i < j; i += groupLength) {
+        temparray.push(arr.slice(i,i+groupLength));
+      }
+    }
+    
     return temparray;
   }
 
-  _renderItem = ( {item, index} ) => {
+  randomNums(arraySize, maxNumer) {
+    let arr = [];
+    for (let i = 0; i < arraySize; ) {
+      let r = Math.floor(Math.random() * maxNumer);
+      if (arr.indexOf(r) === -1) {
+        arr.push(r);
+        i++;
+      }
+    }
+    return arr;
+  }
+
+  _renderItem = ( {item} ) => {
     return (
-      <View style={{width: '100%', height: '100%',
-      flex: 1,
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'center', 
-      alignItems: 'center'}}>
+      <View style={styles.container}>
         {item.map((img, index) =>
-          <View style={styles.container}>
-            <Text style={styles.text}>{img.name}</Text>
-            <Image key={index}
-              style={styles.image}
-              source={{uri: img.thumbnail}}
-            />
-          </View>
+          <ImageWithName key={index} city={img}/>
         )}
       </View>
     );
@@ -67,18 +79,11 @@ export default class CityCarousel extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    width: '45%',
-    justifyContent: 'center', 
-    alignItems: 'center',
-    margin: 5
-  },
-  image: {
     width: '100%', 
-    height: 150
-  },
-  text: {
-    color: 'white',
-    position: 'absolute', 
-    zIndex: 9
-  }
+    height: '100%',
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center', 
+    alignItems: 'center'}
 });

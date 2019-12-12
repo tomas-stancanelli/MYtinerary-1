@@ -16,7 +16,7 @@ const AppNavigator = createStackNavigator({
     Cities: { screen: CitiesScreen },
     Login: { screen: LoginScreen },
     Profile: { screen: Profile },
-    CreateAccount:{ screen: CreateAccountScreen },
+    CreateAccount:{ screen: CreateAccountScreen }, 
  }
 ,  {
     defaultNavigationOptions : ({navigation}) => ({
