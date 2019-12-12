@@ -8,6 +8,7 @@ class LoginScreen extends React.Component {
     };
     render() {
         const { navigate } = this.props.navigation;
+        const { navigation } = this.props.navigation;
         return (
 
             <View style={styles.container}>
@@ -27,7 +28,9 @@ class LoginScreen extends React.Component {
                     style={styles.input} />
                 <TouchableOpacity style={styles.button}>
                     <Text style={styles.colortextbutton}>LOGIN</Text>
-
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
+                    <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
                 </TouchableOpacity>
             </View>
         );
@@ -40,18 +43,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: 'lightgrey',
-        padding: 20
+        padding: 20,
         // justifyContent: 'center'
-
-
+        justifyContent: 'space-between'
+    },
+    logoSolo: {
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        height: 80,
+        width: 80,
+        },
+    imgHome: {
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            paddingTop: "105%",    
     },
     input: {
-
         height: 40,
         marginBottom: 20,
         paddingHorizontal: 10,
         backgroundColor: 'lightgrey',
-
         color: 'black'
     },
     button: {

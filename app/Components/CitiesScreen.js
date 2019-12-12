@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button,Image ,StyleSheet} from 'react-native'
+import { TouchableOpacity, Text, StyleSheet, Button, View, Image } from 'react-native'
 
 class CitiesScreen extends React.Component {
     static navigationOptions = {
@@ -9,23 +9,27 @@ class CitiesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-          <Button 
-          title="Go to Home"
-          onPress={() => navigate('Home')}/>
+            <View style={styles.container}>
+                <Text>Ciudades:</Text> 
+                <View>
+                    <TouchableOpacity onPress={() => navigate('Home')}>
+                        <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
+                    </TouchableOpacity>
+                </View>
+            </View>
         )
     }
 }
-
-export default CitiesScreen;
-
-/*const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: 'black',
-      alignItems: 'center',
-      justifyContent: 'center',
+        height: "100%",
+        width: "100%",
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    logoSolo: {
+        height: 80,
+        width: 80,
         },
-        text: {
-          color: "red",
-        }
-  });*/
+});
+export default CitiesScreen;

@@ -47,7 +47,9 @@ class CreateAccountScreen extends React.Component {
                         style={styles.input} />
                     <TouchableOpacity style={styles.button}>
                         <Text style={styles.colortextbutton}>SUBMIT</Text>
-
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
+                        <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
                     </TouchableOpacity>
                 </View>
             </ScrollView>
@@ -61,18 +63,22 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         // backgroundColor: 'lightgrey',
-        padding: 20
-        // justifyContent: 'center'
-
-
+        padding: 20,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    logoSolo: {
+        height: 80,
+        width: 80,
+        },
+    imgHome: {
+        //paddingTop: "105%",    
     },
     input: {
-
         height: 40,
         marginBottom: 20,
-        paddingHorizontal: 10,
+        width: "100%",
         backgroundColor: 'lightgrey',
-
         color: 'black'
     },
     // button: {
