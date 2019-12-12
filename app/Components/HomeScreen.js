@@ -9,9 +9,8 @@ class HomeScreen extends React.Component {
     };
     render() {
         const { navigate } = this.props.navigation;
-        console.log("home:", this.props)
         return (
-            <ScrollView>
+            <ScrollView >
             <View style={styles.container}>
                 <View style={styles.imgLogo}>
                 <Image source={require('../assets/img/MYtineraryLogo2.png')} />
