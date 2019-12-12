@@ -8,6 +8,8 @@ import Hamburguer from "./Hamburguer";
 import Profile from "./Profile";
 import LoginScreen from './LoginScreen';
 import CreateAccountScreen from './CreateAccountScreen';
+import UserItinLikeScreen from './UserItinLikeScreen';
+
 
 //<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
