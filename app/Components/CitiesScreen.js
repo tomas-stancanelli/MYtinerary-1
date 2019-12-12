@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button,Image ,StyleSheet} from 'react-native'
+import { Text,View, Button,Image ,StyleSheet} from 'react-native'
 
 class CitiesScreen extends React.Component {
     static navigationOptions = {
@@ -9,9 +9,14 @@ class CitiesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
+          <View>
           <Button 
           title="Go to Home"
           onPress={() => navigate('Home')}/>
+            <Button 
+          title="Go to UserItinLike"
+          onPress={() => navigate('UserItinLike')}/>
+          </View>
         )
     }
 }
