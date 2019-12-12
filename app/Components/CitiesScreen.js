@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, Button, View, ScrollView, TextInput } from 'react-native';
+import { Text, View, ScrollView, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import axios from 'axios';
 import ImageWithName from './ImageWithName';
 
@@ -47,8 +47,9 @@ class CitiesScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ScrollView contentContainerStyle={{ justifyContent: 'center', alignItems: 'center' }}>
+            <ScrollView contentContainerStyle={styles.container}>
                 <TextInput
+                    style={{width: '90%', height: 50, textAlign: 'center'}}
                     name="inputValue"
                     placeholder="Search city"
                     onChangeText={this.handleChange}
@@ -63,14 +64,27 @@ class CitiesScreen extends React.Component {
                             <ImageWithName key={index} city={city} width='100%' />
                         ))}
                     </View>
-                }
+                }           
 
-                <Button
-                    title="Go to Home"
-                    onPress={() => navigate('Home')} />
+                <View>
+                    <TouchableOpacity onPress={() => navigate('Home')}>
+                        <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         )
     }
 }
-
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        justifyContent: 'center', 
+        alignItems: 'center'
+    },
+    logoSolo: {
+        height: 80,
+        width: 80,
+        },
+});
 export default CitiesScreen;
