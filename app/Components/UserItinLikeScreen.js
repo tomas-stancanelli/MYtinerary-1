@@ -3,8 +3,8 @@ import { Text, View, ScrollView } from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native';
 // import { ScrollView } from 'react-native-gesture-handler';
-import {AntDesign} from '@expo/vector-icons'
-import {CityCarousel} from './CityCarousel'
+import {AntDesign} from '@expo/vector-icons';
+import Comentarios from './Comentarios'
 
 // type Props = {};
 export default class UserItinLikeScreen extends Component {
@@ -73,7 +73,7 @@ export default class UserItinLikeScreen extends Component {
                                 <Text>{user.rating}</Text>
                                 <Text>{user.duration}</Text>
                                 <Text>{user.price}</Text>
-                                <Text>{user.hashtags}</Text>
+                                <Text> {user.hashtags}</Text>
                                  
                                                                           
                                 </View>
@@ -81,7 +81,9 @@ export default class UserItinLikeScreen extends Component {
                            
                             leftAvatar={{ source: { uri: user.userPhoto } }}
                            rightAvatar={<AntDesign name="hearto" size={30} color='black'/>}
+                            Component={Comentarios}
                             bottomDivider
+
                             // chevron   
                                                  
                         />

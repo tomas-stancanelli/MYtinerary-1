@@ -5,19 +5,33 @@ import CityCarousel from './CityCarousel';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: ' ',
+        title: '#teamwork',
     };
     render() {
         const { navigate } = this.props.navigation;
-        console.log("home:", this.props)
         return (
-            <ScrollView>
+            <ScrollView >
             <View style={styles.container}>
-                <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo2.png')} />
-                <TouchableOpacity onPress={() => navigate('Cities')}>
+                <View style={styles.imgLogo}>
+                <Image source={require('../assets/img/MYtineraryLogo2.png')} />
+                </View>
+                <View style={styles.texto1}>
+                    <Text>
+                        Find your perfect trip,
+                    </Text>
+                    <Text>
+                        designed by insiders who know and love their cities.
+                    </Text>
+                </View>
+                <TouchableOpacity style={styles.flechita} onPress={() => navigate('Cities')}>
                     <Image source={require('../assets/img/circled-right-2.png')} />
                 </TouchableOpacity>
                 <CityCarousel />
+                
+                <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
+                    <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
+                </TouchableOpacity>
+                
             </View>
             </ScrollView>
         )
@@ -26,16 +40,25 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+        height: "100%",
         width: "100%",
-        backgroundColor: '#fff',
-        flex: 1,
         alignItems: 'center',
+        justifyContent: 'space-between'
     },
-    imgLogo: {
-        marginTop: 30
-    }
+    imgHome: {
+        alignItems: 'flex-end',
+        paddingTop: 40,    
+    },
+    texto1: {
+        paddingTop: 10,
+        paddingBottom: 10,
+        alignItems: 'center',
+        
+    },
+    logoSolo: {
+        height: 80,
+        width: 80,
+        }
 });
-
-
 
 export default HomeScreen;
