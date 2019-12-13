@@ -17,10 +17,13 @@ class Profile extends React.Component {
     this._menu.show();
   };
 
-  render() {
-    //console.log(this.props)
+  redirect = (screen) => {
     const { navigate } = this.props.navigation;
-    //console.log("props de profile:", this.props.navigation);
+    this.hideMenu();
+    navigate(screen);
+  }
+
+  render() {
     return (
       <View style={{ flex: 1, alignItems: 'flex-start' }}>
         <Menu
@@ -31,8 +34,8 @@ class Profile extends React.Component {
           </TouchableOpacity>
           }
         >
-          <MenuItem onPress={() => navigate('Login')}>Login</MenuItem>
-          <MenuItem onPress={() => navigate('ActivityCarousel')}>Create Account</MenuItem>
+          <MenuItem onPress={() => this.redirect('Login')}>Login</MenuItem>
+          <MenuItem onPress={() => this.redirect('CreateAccount')}>Create Account</MenuItem>
         </Menu>
       </View>
     );

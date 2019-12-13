@@ -18,6 +18,12 @@ class Hamburguer extends React.PureComponent {
     this._menu.show();
   };
 
+  redirect = (screen) => {
+    const { navigate } = this.props.navigation;
+    this.hideMenu();
+    navigate(screen);
+  }
+
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'flex-end' }}>
@@ -29,8 +35,8 @@ class Hamburguer extends React.PureComponent {
                         </TouchableOpacity>
             }
         >
-          <MenuItem onPress={this.hideMenu}>Home</MenuItem>
-          <MenuItem onPress={this.hideMenu}>Cities</MenuItem>
+          <MenuItem onPress={() => {this.redirect('Home')}}>Home</MenuItem>
+          <MenuItem onPress={() => {this.redirect('Cities')}}>Cities</MenuItem>
           <MenuItem onPress={this.hideMenu} disabled>
             Itineraries
           </MenuItem>
