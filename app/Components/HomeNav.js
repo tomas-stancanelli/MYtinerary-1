@@ -9,6 +9,8 @@ import Profile from "./Profile";
 import LoginScreen from './LoginScreen';
 import CreateAccountScreen from './CreateAccountScreen';
 import User from "./User"
+import UserItinLikeScreen from './UserItinLikeScreen';
+
 
 //<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
