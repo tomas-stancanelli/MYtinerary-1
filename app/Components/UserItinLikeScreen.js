@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView ,TouchableOpacity,Image} from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native';
 // import { ScrollView } from 'react-native-gesture-handler';
@@ -43,10 +43,9 @@ export default class UserItinLikeScreen extends Component {
         return (
             <ScrollView>
                 <View style={{ flex: 1, width: '90%' }}>
-                    {this.state.data.map(user => {
-
-                        return <ListItem
-
+                    {this.state.data.map((user,index) => {
+                        return <ListItem key={index}
+                            // roundAvatar
                             title={user.username}
                             subtitle={
                                 <View>
@@ -56,21 +55,20 @@ export default class UserItinLikeScreen extends Component {
                                     <Text>{user.rating}</Text>
                                     <Text>{user.duration}</Text>
                                     <Text>{user.price}</Text>
-                                    <Text> {user.hashtags}</Text>
-
-
+                                    <Text>{user.hashtags}</Text>                                                                     
                                 </View>
                             }
 
                             leftAvatar={{ source: { uri: user.userPhoto } }}
-                            rightAvatar={<AntDesign name="hearto" size={30} color='black' />}
-                            Component={Comentarios}
+                           rightAvatar={<AntDesign name="hearto" size={30} color='black'/>}
+                            // Component={Comentarios}
                             bottomDivider
 
                         />
 
                     })}
                 </View>
+                
             </ScrollView>
 
         );
