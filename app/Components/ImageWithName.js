@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 
 export default class CityCarousel extends React.Component {
   constructor(props){
@@ -13,13 +13,13 @@ export default class CityCarousel extends React.Component {
     const containerWidthCustom =  {...styles.container};
     containerWidthCustom.width = this.props.width || styles.container.width;
     return (
-        <View style={containerWidthCustom}>
+        <TouchableOpacity style={containerWidthCustom} onPress={() => this.props.navigate('Itinerary', {city: this.props.city})}>
             <Text style={styles.text}>{this.props.city.name}</Text>
             <Image 
                 style={styles.image}
                 source={{uri: this.props.city.image}}
             />
-        </View>
+        </TouchableOpacity>
     );
   }
 }

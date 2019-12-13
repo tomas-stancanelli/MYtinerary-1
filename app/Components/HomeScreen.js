@@ -26,7 +26,7 @@ class HomeScreen extends React.Component {
                 <TouchableOpacity style={styles.flechita} onPress={() => navigate('Cities')}>
                     <Image source={require('../assets/img/circled-right-2.png')} />
                 </TouchableOpacity>
-                <CityCarousel />
+                <CityCarousel navigate={navigate}/>
                 
                 <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
                     <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>

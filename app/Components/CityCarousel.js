@@ -59,7 +59,7 @@ export default class CityCarousel extends React.Component {
     return (
       <View style={styles.container}>
         {item.map((img, index) =>
-          <ImageWithName key={index} city={img}/>
+          <ImageWithName key={index} city={img} navigate={this.props.navigate}/>
         )}
       </View>
     );
