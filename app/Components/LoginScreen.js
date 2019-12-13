@@ -71,13 +71,6 @@ class LoginScreen extends React.Component {
                 <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
                     <Text style={styles.colortextbutton}>LOGIN</Text>
                 </TouchableOpacity>
-<<<<<<< HEAD
-                <View>
-                    <Image style={{height: 300, width: "100%", marginTop: 10}} source={{uri: 'https://media1.tenor.com/images/125764d70601094c243ce01333d2e147/tenor.gif?itemid=4983812'}}/>
-                </View>
-=======
-
->>>>>>> c52d2a62b8cd63927b1db487fb3c326c410ccd74
                 <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
                     <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')} />
                 </TouchableOpacity>

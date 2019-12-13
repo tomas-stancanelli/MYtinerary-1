@@ -10,10 +10,9 @@ class HomeScreen extends React.Component {
     render() {
         const { navigate } = this.props.navigation;
         return (
-            <ScrollView >
             <View style={styles.container}>
-                <View style={styles.imgLogo}>
-                <Image source={require('../assets/img/MYtineraryLogo2.png')} />
+                <View style={styles.contieneLogo}>
+                <Image style={styles.imgLogo} source={require('../assets/img/MYtineraryLogo.png')} />
                 </View>
                 <View style={styles.texto1}>
                     <Text>
@@ -27,38 +26,47 @@ class HomeScreen extends React.Component {
                     <Image source={require('../assets/img/circled-right-2.png')} />
                 </TouchableOpacity>
                 <CityCarousel navigate={navigate}/>
-                
                 <TouchableOpacity style={styles.imgHome} onPress={() => navigate('Home')}>
-                    <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')}/>
+                    <Image style={styles.logoSolo} source={require('../assets/img/homeIcon.png')} />
                 </TouchableOpacity>
                 
             </View>
-            </ScrollView>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    logoSolo: {
+        height: 80,
+        width: 80,
+    },
+    imgHome: {
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        paddingTop: "105%",
+    },
+    imgLogo: {
+        height: 160,
+        width: 380,
+        justifyContent: 'center',
+        alignSelf: 'center',
+    },
     container: {
         height: "100%",
         width: "100%",
         alignItems: 'center',
-        justifyContent: 'space-between'
+
     },
     imgHome: {
-        alignItems: 'flex-end',
+        justifyContent: 'flex-end',
         paddingTop: 40,    
     },
     texto1: {
         paddingTop: 10,
         paddingBottom: 10,
         alignItems: 'center',
-        
+        justifyContent: 'center',   
     },
-    logoSolo: {
-        height: 80,
-        width: 80,
-        }
 });
 
 export default HomeScreen;
