@@ -10,6 +10,10 @@ import LoginScreen from './LoginScreen';
 import CreateAccountScreen from './CreateAccountScreen';
 import ItineraryScreen from './ItineraryScreen';
 import CityCarousel from './CityCarousel';
+import UserItinLikeScreen from './UserItinLikeScreen';
+
+
+//<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
 const AppNavigator = createStackNavigator({
     Home: { screen: HomeScreen },
