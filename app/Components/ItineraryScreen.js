@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Text, View, ScrollView, TouchableHighlight } from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native';
-// import { ScrollView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
 import Comentarios from './Comentarios'
 import ImageWithName from './ImageWithName'
@@ -23,6 +22,8 @@ class ItineraryScreen extends React.Component {
             type: "heart"
         }
     }
+    
+
 
     async componentDidMount() {
         var city_name = this.state.city.name;
@@ -75,6 +76,7 @@ class ItineraryScreen extends React.Component {
 
 
     render = () => {
+
         return (
 
             <ScrollView>
