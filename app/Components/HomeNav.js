@@ -20,7 +20,8 @@ const AppNavigator = createStackNavigator({
     Login: { screen: LoginScreen },
     Profile: { screen: Profile },
     CreateAccount:{ screen: CreateAccountScreen },
-    ActivityCarousel:{ screen: ActivityCarousel }
+    ActivityCarousel:{ screen: ActivityCarousel },
+    UserItinLike:{ screen: UserItinLikeScreen }
  }
 ,  {
     defaultNavigationOptions : ({navigation}) => ({

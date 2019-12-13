@@ -63,7 +63,7 @@ export default class CityCarousel extends React.Component {
     return (
       <View style={styles.container}>
           <Text key={index} style={{fontWeight: "bold"}}>
-               Name: {item.name}{'\n'}
+              Name: {item.name}{'\n'}
               Address: {item.address}{'\n'}
               Photo: {item.photo}{'\n'}
               Time: {item.time}{'\n'}

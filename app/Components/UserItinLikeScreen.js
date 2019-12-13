@@ -61,27 +61,25 @@ export default class UserItinLikeScreen extends Component {
             // </List>
             <ScrollView>
                 <View style={{ flex: 1, width: '90%' }}>
-                    {this.state.data.map(user => {
-                        return <ListItem
+                    {this.state.data.map((user,index) => {
+                        return <ListItem key={index}
                             // roundAvatar
                             title={user.username}
                             subtitle={
                                 <View>
-                                <Text>{user.country}</Text>
-                                <Text>{user.city}</Text>
-                                <Text>{user.title}</Text>
-                                <Text>{user.rating}</Text>
-                                <Text>{user.duration}</Text>
-                                <Text>{user.price}</Text>
-                                <Text> {user.hashtags}</Text>
-                                 
-                                                                          
+                                    <Text>{user.country}</Text>
+                                    <Text>{user.city}</Text>
+                                    <Text>{user.title}</Text>
+                                    <Text>{user.rating}</Text>
+                                    <Text>{user.duration}</Text>
+                                    <Text>{user.price}</Text>
+                                    <Text>{user.hashtags}</Text>                                                                     
                                 </View>
                             }
                            
                             leftAvatar={{ source: { uri: user.userPhoto } }}
                            rightAvatar={<AntDesign name="hearto" size={30} color='black'/>}
-                            Component={Comentarios}
+                            // Component={Comentarios}
                             bottomDivider
 
                             // chevron   
