@@ -3,7 +3,7 @@ import { Text, View, ScrollView ,TouchableOpacity,Image} from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native';
 // import { ScrollView } from 'react-native-gesture-handler';
-import {AntDesign} from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import Comentarios from './Comentarios'
 
 // type Props = {};
@@ -38,27 +38,9 @@ export default class UserItinLikeScreen extends Component {
             });
         console.log('carga de users')
     };
-  
+
     render() {
         return (
-            // <List>
-            //     <FlatList
-            //         data={this.state.data}
-            //         renderItem={({ item }) => (
-            //             <ListItem
-            //                 roundAvatar
-            //                 title={item.username}
-            //                 subtitle={item.email}
-            //                 avatar={{ uri: item.image }}
-
-            //             />
-
-            //         )}
-
-            //     />
-
-
-            // </List>
             <ScrollView>
                 <View style={{ flex: 1, width: '90%' }}>
                     {this.state.data.map((user,index) => {
@@ -76,40 +58,19 @@ export default class UserItinLikeScreen extends Component {
                                     <Text>{user.hashtags}</Text>                                                                     
                                 </View>
                             }
-                           
+
                             leftAvatar={{ source: { uri: user.userPhoto } }}
                            rightAvatar={<AntDesign name="hearto" size={30} color='black'/>}
                             // Component={Comentarios}
                             bottomDivider
 
-                            // chevron   
-                                                 
                         />
 
-                        // return <View>
-                        //     <Text>{user.username}</Text>
-                        //     <Text>{user.email}</Text>
-
-                        // </View>
                     })}
                 </View>
                 
             </ScrollView>
 
         );
-
-        // if(this.state.loading){
-        //     return (
-        //         <View>
-        //             <Text> Usuarios Cargando </Text>
-        //         </View>
-        //     );
-        // }
-
-        // return (
-        //     <View>
-        //         <Text> Los Usuarios ya se encuentran descargados! </Text>
-        //     </View>
-        // );
     }
 }

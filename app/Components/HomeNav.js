@@ -9,10 +9,10 @@ import Profile from "./Profile";
 import LoginScreen from './LoginScreen';
 import CreateAccountScreen from './CreateAccountScreen';
 import ActivityCarousel from './ActivityCarousel'
+import User from "./User"
 import ItineraryScreen from './ItineraryScreen';
 import CityCarousel from './CityCarousel';
 import UserItinLikeScreen from './UserItinLikeScreen';
-
 
 //<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
