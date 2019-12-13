@@ -41,7 +41,7 @@ class Hamburguer extends React.PureComponent {
             Itineraries
           </MenuItem>
           <MenuDivider />
-          <MenuItem onPress={this.hideMenu}>Log Out</MenuItem>
+          <MenuItem onPress={() => {this.redirect('LogOut')}}>Log Out</MenuItem>
         </Menu>
       </View>
     );
