@@ -61,7 +61,7 @@ class CitiesScreen extends React.Component {
                      :
                     <View style={{ width: '90%' }}>
                         {this.state.filteredCities.map((city, index) => (
-                            <ImageWithName key={index} city={city} width='100%' />
+                            <ImageWithName key={index} city={city} width='100%' navigate={navigate}/>
                         ))}
                     </View>
                 }           
