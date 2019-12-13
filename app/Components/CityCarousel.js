@@ -83,7 +83,7 @@ export default class CityCarousel extends React.Component {
     return (
         <Carousel
           data={this.state.images}
-          renderItem={this._renderItem.bind(this)}
+          renderItem={this._renderItem}
           sliderWidth={410}
           itemWidth={410}
         />

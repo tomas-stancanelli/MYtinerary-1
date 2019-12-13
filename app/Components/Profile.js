@@ -18,9 +18,9 @@ class Profile extends React.Component {
   };
 
   render() {
-    console.log(this.props)
+    //console.log(this.props)
     const { navigate } = this.props.navigation;
-    console.log("props de profile:", this.props.navigation);
+    //console.log("props de profile:", this.props.navigation);
     return (
       <View style={{ flex: 1, alignItems: 'flex-start' }}>
         <Menu
@@ -32,7 +32,7 @@ class Profile extends React.Component {
           }
         >
           <MenuItem onPress={() => navigate('Login')}>Login</MenuItem>
-          <MenuItem onPress={() => navigate('CreateAccount')}>Create Account</MenuItem>
+          <MenuItem onPress={() => navigate('ActivityCarousel')}>Create Account</MenuItem>
         </Menu>
       </View>
     );
