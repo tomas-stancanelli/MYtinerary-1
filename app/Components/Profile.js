@@ -25,7 +25,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'flex-start' }}>
+      <View style={{ flex: 1, alignItems: 'flex-start', padding: 2 }}>
         <Menu
           ref={this.setMenuRef}
           button={<TouchableOpacity

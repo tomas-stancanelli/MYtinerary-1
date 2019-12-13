@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView ,TouchableOpacity,Image} from 'react-native';
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native';
 // import { ScrollView } from 'react-native-gesture-handler';
@@ -93,6 +93,7 @@ export default class UserItinLikeScreen extends Component {
                         // </View>
                     })}
                 </View>
+                
             </ScrollView>
 
         );
