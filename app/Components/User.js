@@ -16,8 +16,8 @@ class User extends Component {
     render() {
         return (
             <View>
-                {console.log(this.props.user)}
-                {this.props.user ? <Text>Hello, {this.props.user}! </Text> : <Text></Text>}
+                {/* {console.log(this.props.user)}
+                {this.props.user ? <Text>Hello, {this.props.user}! </Text> : <Text></Text>} */}
             </View>
         )
     }
