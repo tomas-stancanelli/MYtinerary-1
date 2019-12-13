@@ -8,6 +8,7 @@ import Hamburguer from "./Hamburguer";
 import Profile from "./Profile";
 import LoginScreen from './LoginScreen';
 import CreateAccountScreen from './CreateAccountScreen';
+import User from "./User"
 
 //<Image source={require('./assets/2388994522.png')} style={{width:40, height:40}}/>
 
@@ -22,7 +23,8 @@ const AppNavigator = createStackNavigator({
     defaultNavigationOptions : ({navigation}) => ({
     header:     (
             <View style={{paddingBottom: 0, height: '12%', flexDirection:'row' , justifyContent: 'space-between', alignItems: 'flex-end', top: 10, backgroundColor: '#ef3b36'}}>
-            <Profile navigation={navigation} />        
+            <Profile navigation={navigation} />
+            <User />        
             <Hamburguer navigation={navigation} />
     </View> )
     })
